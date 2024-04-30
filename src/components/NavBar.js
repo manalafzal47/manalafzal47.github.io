@@ -14,8 +14,10 @@ function NavBar() {
       </div>
     </div>
     <div className = "title">
+      <div className = "title-container">
       <h1 className = "first-title">I'm a</h1>
       <h1 className = "second-title">Full Stack Web Developer</h1>
+      </div>
       <button className = "pastprojects-btn">Past Projects</button>
     </div>
     </div>
