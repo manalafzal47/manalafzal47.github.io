@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import {Link} from 'react-router-dom';
 
 function Experience(){
     return (
@@ -6,7 +7,7 @@ function Experience(){
             <div className = "portfolio-title">PORTFOLIO</div>
                 <div className = "portfolio-nav-links">
                     <div className = "nav-1">Data Analysis</div>
-                    <div className = "nav-2">Web Developments</div>
+                    <div className = "nav-2">Web Develoments</div>
                     <div className = "nav-3">Other projects</div>
                 </div>
                 
@@ -19,6 +20,7 @@ function Experience(){
                         <h1 className = "project1-title">Project 1</h1>
                         <h2 className = "project1-project-name">Mental Health Data Analysis Project</h2>
                         <p className = "project1-description">Utilizing advanced Python libraries such as Numpy, Pandas, Matplotlib, Seaborn, and GeoPandas, extensive datasets from 1990 to 2017 were analyzed. This endeavor refined data analysis skills and enhanced understanding of mental health trends over the years. </p>
+                        <Link to= "https://github.com/manalafzal47/Data-Science-Projects">Github</Link>
                     </div>
                 </div>
 
