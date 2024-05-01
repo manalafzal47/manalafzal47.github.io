@@ -39,7 +39,8 @@ body, html {
 
 .about_me {
     padding: 10px;
-
+    text-size:12px;
+    color:white;
 }
 
 .portfolio {
@@ -251,4 +252,62 @@ body, html {
 
 .project2-description {
     width: 500px;
+}
+
+/* -------------------------- CONTACT --------------------*/
+
+.form {
+    width: 68%;
+    height: 330px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, rgba(68, 36, 164, 1) 0%, rgba(84, 212, 228, 1) 100%);
+    margin: 10px;
+    padding: 10px;
+    margin:auto;
+}
+
+.form-title {
+    font-size:12px;
+    text-align: center;
+}
+
+.label-container {
+    display:flex;
+    flex-direction:column;
+}
+
+.name-input {
+    width: 586px;
+    height: 49px;
+    background-color:#040720;
+    border-radius: 5px;
+    margin:5px;
+    padding:5px;
+}
+
+.email-input {
+    width: 586px;
+    height: 49px;
+    background-color:#040720;
+    border-radius: 5px;
+    margin:5px;
+    padding:5px;
+}
+
+.message-input {
+    width: 586px;
+    height: 49px;
+    background-color:#040720;
+    border-radius: 5px;
+    margin:5px;
+    padding:5px;
+}
+
+.submit-btn {
+    width: 180px;
+    height: 30px;
+    background-color:#040720;
+    border-radius: 5px;
+    margin:5px;
+    padding:5px;
 }
