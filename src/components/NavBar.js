@@ -8,23 +8,29 @@ function NavBar() {
       <div className = "nav-container">
       <div className = "navigation">
         
-        <div className="home">
-          <h1>Home</h1>
-          <Link to="/"></Link>
+        <div>
+          <Link to="/">
+            <h1 className="home">Home</h1>
+          </Link>
         </div>
 
-        <div className="about_me">
-          <Link to="/AboutMe">About Me</Link>
+        <div>
+          <Link to="/AboutMe">
+            <h1 className="about_me">About Me</h1>
+          </Link>
         </div>
 
-        <div className="experience">
-          <h1>Experiences</h1>
-        <Link to="/Experience"> Experiences </Link>
+        <div>
+          <Link to="/Experience"> 
+            <h1 className="experience">Experiences</h1>
+          </Link>
         
         </div>
 
-        <div className = "contact"> 
-          <Link to="/Contact">Contact Me</Link>
+        <div>  
+          <Link to="/Contact">
+            <h1 className = "contact">Contact Me</h1>
+          </Link>
         </div>
 
       </div>

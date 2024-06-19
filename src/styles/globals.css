@@ -35,6 +35,7 @@ body, html {
 
 .home {
     padding: 10px;
+    color:white;
 }
 
 .about_me {
@@ -45,12 +46,11 @@ body, html {
 
 .portfolio {
     padding: 10px;
-
 }
 
 .experience {
     padding: 10px;
-
+    color:white;
 }
 
 .contact {
@@ -264,6 +264,7 @@ body, html {
     margin: 10px;
     padding: 10px;
     margin:auto;
+    color:white;
 }
 
 .form-title {
@@ -274,6 +275,8 @@ body, html {
 .label-container {
     display:flex;
     flex-direction:column;
+    color:white;
+
 }
 
 .name-input {
@@ -283,6 +286,7 @@ body, html {
     border-radius: 5px;
     margin:5px;
     padding:5px;
+    color:white;
 }
 
 .email-input {
@@ -292,6 +296,8 @@ body, html {
     border-radius: 5px;
     margin:5px;
     padding:5px;
+    color:white;
+
 }
 
 .message-input {
@@ -301,6 +307,7 @@ body, html {
     border-radius: 5px;
     margin:5px;
     padding:5px;
+    color:white;
 }
 
 .submit-btn {
@@ -310,4 +317,6 @@ body, html {
     border-radius: 5px;
     margin:5px;
     padding:5px;
+    color:white;
+
 }
