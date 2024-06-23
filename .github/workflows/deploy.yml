@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - gh-pages  # Adjust this if you're using a different branch
+      - master  # Adjust this if you're using a different branch
 
 jobs:
   build-deploy:
