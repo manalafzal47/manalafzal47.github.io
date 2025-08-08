@@ -1,0 +1,90 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #fcfcfc;
+  color: #222;
+  line-height: 1.6;
+}
+
+header {
+  background: #0f0f0f;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.hero img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.intro h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.quick-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.quick-facts div {
+  background: #f0f0f0;
+  padding: 1rem;
+  border-radius: 6px;
+  flex: 1 1 200px;
+}
+
+section {
+  margin-top: 3rem;
+}
+
+img {
+  width: 100%;
+  border-radius: 6px;
+  margin: 1rem 0;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+.early-ui, .final-iterations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.early-ui img,
+.final-iterations img {
+  flex: 1 1 45%;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #f0f0f0;
+  margin-top: 4rem;
+}
