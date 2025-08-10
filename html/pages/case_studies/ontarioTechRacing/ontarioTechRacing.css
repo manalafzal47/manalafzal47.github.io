@@ -42,11 +42,18 @@ main {
   font-size: 1.8rem;
 }
 
+.context-grid{
+  display:flex;
+  gap: 30px;
+}
+
+.context-text{
+  width: 50%;
+}
+
 .quick-facts {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 1rem;
+  display: grid;
+  /* margin-top: 1rem; */
 }
 
 .quick-facts div {
@@ -65,6 +72,15 @@ section {
   width: 100%;
   border-radius: 8px;
   margin: 0.5rem 0;
+}
+
+.page-columns{
+  display:flex;
+  gap: 80px;
+}
+
+.caption{
+  margin: 0 auto;
 }
 
 .old-ui-grid {

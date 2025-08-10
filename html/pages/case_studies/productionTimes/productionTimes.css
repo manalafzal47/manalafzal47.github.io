@@ -57,6 +57,18 @@ main {
   flex: 1 1 200px;
 }
 
+.problem-cards{
+  display:flex
+}
+
+.card{
+  background-color: #dad6d6;
+  margin: 10px;
+  border-radius: 20px;
+  padding: 20px;
+  border: 1px solid black;
+}
+
 section {
   margin-top: 3rem;
 }
@@ -69,6 +81,15 @@ img {
 
 ul {
   padding-left: 1.5rem;
+}
+
+.initial-design-container {
+  display:flex;
+}
+
+.inital-design {
+  width: 40%;
+  gap: 5px;
 }
 
 .early-ui, .final-iterations {
@@ -88,3 +109,4 @@ footer {
   background: #f0f0f0;
   margin-top: 4rem;
 }
+
