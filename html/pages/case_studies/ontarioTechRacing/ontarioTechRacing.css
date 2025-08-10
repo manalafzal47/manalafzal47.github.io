@@ -66,14 +66,6 @@ section {
   margin-top: 3rem;
 }
 
-.problem-images img,
-.old-ui-grid img,
-.final-ui img {
-  width: 100%;
-  border-radius: 8px;
-  margin: 0.5rem 0;
-}
-
 .page-columns{
   display:flex;
   gap: 80px;
@@ -103,12 +95,32 @@ footer {
 
 .problem-images {
   display: flex;
-  flex-wrap: wrap;
   gap: 1rem;
-  justify-content: center;
+  flex-wrap: nowrap;        
+  align-items: flex-start;
+}
+
+.problem-images figure {
+  margin: 0;
+  flex: 1 1 0;
+  min-width: 0;           
 }
 
 .problem-images img {
-  max-width: 400px;
-  flex: 1 1 300px;
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.problem-item1,
+.problem-item2 {
+  max-width: none !important;
+  display: block !important;
+  text-align: center;
+}
+
+@media (max-width: 700px){
+  .problem-images { flex-wrap: wrap; }
+  .problem-images figure { flex-basis: 100%; }
 }
