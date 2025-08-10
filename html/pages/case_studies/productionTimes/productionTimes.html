@@ -3,15 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Production Times – Case Study</title>
+  <title>Production Times Case Study</title>
   <link rel="stylesheet" href="../productionTimes/productionTimes.css" />
 </head>
+
 <body>
-  <header>
-    <div class="navbar">
+<div class="header-banner">
+<header>
+  <div class="navbar">
       <h1>Production Times – Case Study</h1>
-      <nav>
-        <ul>
+
+      <!-- Navigation Hamburger -->
+      <button class="nav-toggle" 
+          id="navToggle"
+          aria-label="Open menu"
+          aria-controls="siteNav"
+          aria-expanded="false"
+        >
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav id="siteNav">
+        <ul class="nav-list">
           <li><a href="#">Home</a></li>
           <li><a href="#">Work</a></li>
           <li><a href="#">About</a></li>
@@ -20,28 +35,51 @@
     </div>
   </header>
 
-  <main>
-    <!-- Hero Section -->
-    <section class="hero">
-      <img src="../../../../css/images/homepage/production_banner.png" alt="Production Times Overview" class="hero-img" />
-    </section>
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <img src="../../../../css/images/homepage/production_banner.png" alt="Production Times Overview" class="hero-img" />
+      </section>
 
     <!-- Intro -->
-    <section class="intro">
+
+    <!-- <section class="intro">
       <h2>Internship / Production Times Ticket Newsletter</h2>
       <p class="subtitle">Designing Ticket Processing System for Ministry of Transportation</p>
+      <h3>Demoed</h3>
+
       <div class="quick-facts">
+
         <div><strong>Context</strong><br>Internship – Ministry of Transportation</div>
         <div><strong>Role</strong><br>UI/UX Designer & Frontend Developer</div>
         <div><strong>Tools</strong><br>Figma, PowerPoint, JavaScript</div>
         <div><strong>Timeline</strong><br>Jan 2025 - May 2025</div>
         <div><strong>Team</strong><br>4 Students</div>
       </div>
+    </section> -->
+      <section class="intro">
+
+      <h1>Club / Ontario Tech Racing Website Redesign</h1>
+      <p class="subtitle">Ontario Tech Racing is a student-led FSAE team that builds a full-fledged car that competes with other universities at the Michigan Competition. I joined as a Software Lead to redesign the team website, aiming to make it more clear, modern and more impactful for both sponsors and students.</p>
+      <h3>Shipped</h3>
+
+      <div class="context-grid">
+        <div class="context-text">
+          <h4>Context</h4>
+          <p>Ontario Tech Racing is a <strong>student-led FSAE team</strong> that builds a full-fledged car that competes with other universities at the Michigan Competition. I joined as a Software Lead to redesign the team website, aiming to make it more clear, modern and impactful for both sponsors and students.</p>
+        </div>
+        <div class="quick-facts">
+          <p><strong>Timeline</strong><br>Sep - April 2025</p>
+          <p><strong>Team</strong><br>4 Students</p>
+          <p><strong>Role</strong><br>UI/UX Designer<br>Frontend Developer</p>
+        </div>
+      </div>
     </section>
+
 
     <!-- Problem Section -->
     <section class="problem">
-      <h3>Problem</h3>
+      <h2>PROBLEM</h2>
       <p>The manual ticket processing system had a few problems:</p>
       <ul>
         <li><strong>7-8 Excel files</strong> used manually to track tickets.</li>
@@ -69,7 +107,7 @@
 
     <!-- Design Process -->
     <section class="design-process">
-      <h3>Design Process</h3>
+      <h2>DESIGN PROCESS</h2>
       <p>
         We began with minimal requirements and used wireframes to explore creative directions.
         I proposed a flexible application that allowed users to preview or start new newsletters, emphasized past newsletter browsing, and prioritized accessibility.
@@ -96,7 +134,7 @@
 
     <!-- Feedback + Iterations -->
     <section class="feedback">
-      <h3>Developer Feedback</h3>
+      <h2>DEVELOPER FEEDBACK</h2>
       <p>
         We presented our prototypes to senior developers. They suggested:
         <ul>
@@ -110,7 +148,7 @@
 
     <!-- Iteration Breakdown -->
     <section class="iterations">
-      <h3>Iterations</h3>
+      <h2>ITERATIONS</h2>
       <p>We demoed the app 3 times and refined based on feedback. Major changes included:</p>
       <ul>
         <li>Added DevOps-based high-visibility ticket tracking</li>
@@ -123,7 +161,7 @@
 
     <!-- What I Shipped -->
     <section class="shipped">
-      <h3>What I Shipped</h3>
+      <h2>SHIPPED</h2>
       <div class="grid">
         <div>
           <h4>Design</h4>
@@ -146,7 +184,7 @@
 
     <!-- Final Designs -->
     <section class="final-designs">
-      <h3>Final Designs</h3>
+      <h2>FINAL DESIGNS</h2>
       <img src="../../../../css/images/productiontimes/new development/loadingScreen.jpeg" alt="Loading Screens Final UI" />
       <img src="../../../../css/images/productiontimes/new development/dashboard.jpeg" alt="Homepage Final UI" />
       <img src="../../../../css/images/productiontimes/new development/ssmPage.jpeg" alt="SSM Final UI" />
@@ -155,7 +193,7 @@
 
     <!-- Learnings -->
     <section class="reflection">
-      <h3>Learnings & Reflections</h3>
+      <h2>LEARNINGS & REFLECTIONS </h2>
       <ul>
         <li>Responding to feedback from non-designers</li>
         <li>Prioritizing usability for older users</li>

@@ -1,3 +1,5 @@
+
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -30,45 +32,50 @@ main {
   padding: 2rem;
 }
 
-.intro {
-  text-align: center;
+.intro{
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 2rem;
+  align-items: center;
+  text-align: left;        
   margin-bottom: 3rem;
-  display: flex;
 }
 
-.intro-image{
-  display:grid
-}
-
-.intro-image img {
+.intro-image{ text-align: center; }
+.intro-image img{
   width: 190px;
   border-radius: 50%;
-  margin-bottom: 1rem;
+  display: block;
+  margin: 0 auto .75rem;
 }
+.intro-image a { display: inline-block; } 
 
-.intro-text{
-  margin: 10px;
-  gap: 20px;
-  padding: 10px;
-}
+.intro-text h1{ margin-bottom: .25rem; }
+.intro-text p{ margin: .2rem 0; }
 
 .tags{
   display: flex;
-  flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 2rem;
 }
 
 .tag{
-  border: 1px solid #000000;
-  border-radius: 5px;
-  margin: 5px;
-  padding: 7px;
+  border: 1px solid #ddd8d8;
+  border-radius: 10px;
+  margin: 4px;
+  padding: 2px;
+}
+
+.connect-btn{
+  background-color: rgb(231, 149, 78);
+  border-radius: 20px;
+  width: 120px;
+  height: 40px;
+
 }
 
 .experiences-logos{
   display: flex;
-  flex-wrap: space-between;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 1rem;
   align-items: center;
@@ -145,3 +152,24 @@ footer {
   background: #fff;
   border-top: 1px solid #ccc;
 }
+
+:root{ --dur:.25s; --ease:cubic-bezier(.2,.8,.2,1); }
+
+a, .project, .tools-box img, .tag, .experiences-logos {
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.project:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,.12); }
+.tag:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.1); }
+.tools-box img:hover { transform: scale(1.06); }
+.experiences-logos img:hover { transform: scale(1.06); }
+
+.project-header{
+  display:flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap:.75rem;
+  margin:.25rem 0 .5rem;
+}
+.project h3{ margin:0; }
+.project p{ margin:.25rem 0; }
+
