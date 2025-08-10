@@ -1,5 +1,4 @@
 
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -221,18 +220,15 @@ a, .project, .tools-box img, .tag, .experiences-logos {
 }
 .exp-row:hover::before{ background: var(--accent); }
 
-/* text */
 .exp-company{ font-weight:700; }
 .exp-role{ color:var(--muted); margin-top:2px; }
 .exp-dates{ color:var(--muted); white-space:nowrap; }
 
-/* mobile: stack date under company */
 @media (max-width:600px){
   .exp-row{ grid-template-columns: 1fr; }
   .exp-dates{ order:2; }
 }
 
-/* makes pixel art render with nearest-neighbor */
 .pixel {
   image-rendering: pixelated;
   -ms-interpolation-mode: nearest-neighbor; /* ancient IE */
@@ -245,4 +241,45 @@ a, .project, .tools-box img, .tag, .experiences-logos {
 .avatar-badge img{
   display:block;
   width: 230px; height: 230px; 
+}
+
+
+:root{
+  --accent:#264fc2;           /* your brand color */
+  --loader-bg:#ffffff;        /* loader background */
+  --dur:.9s;                  /* draw duration */
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+
+/* overlay */
+#loader{
+  position:fixed; inset:0; display:grid; place-items:center;
+  gap:12px; background:var(--loader-bg); z-index:9999;
+  transition: opacity 120s var(--ease), visibility .4s var(--ease);
+}
+#loader.hide{ opacity:0; visibility:hidden; pointer-events:none; }
+
+/* signature */
+#loader .sig{
+  width:min(60vw, 520px); height:auto; color:var(--accent);
+}
+#loader .tagline{
+  font: 600 .95rem/1.2 system-ui, "Segoe UI", sans-serif;
+  color:#667085;
+}
+
+/* stroke-dash animation */
+@keyframes draw {
+  from { stroke-dashoffset: var(--len, 1000); }
+  to   { stroke-dashoffset: 0; }
+}
+.sig path{
+  stroke-dasharray: var(--len, 1000);
+  stroke-dashoffset: var(--len, 1000);
+  animation: draw var(--draw, 1200ms) var(--ease) forwards;
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .sig path{ animation: none; stroke-dashoffset: 0; }
 }

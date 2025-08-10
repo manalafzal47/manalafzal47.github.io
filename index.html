@@ -6,7 +6,73 @@
   <title>Manal Portfolio</title>
   <link rel="stylesheet" href="./css/images/styles.css">
 </head>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const loader = document.getElementById('loader');
+  if (!loader) return;
+
+  const path = document.getElementById('sigPath');
+  // --- knobs you can tweak ---
+  const PX_PER_SEC = 550;    // drawing speed (lower = slower draw)
+  const HOLD_MS    = 900;    // how long the full signature stays visible
+  const MAX_MS     = 5000;   // absolute safety cap for the whole thing
+  const FIRST_VISIT_ONLY = false; // set false to show every visit
+  // ---------------------------
+
+  if (FIRST_VISIT_ONLY && sessionStorage.getItem('seenLoader')) {
+    hide(); return;
+  }
+  if (FIRST_VISIT_ONLY) sessionStorage.setItem('seenLoader','1');
+
+  let drawMs = 1200; // default
+  if (path) {
+    const L = Math.ceil(path.getTotalLength());     // pixels of the stroke
+    drawMs = Math.round((L / PX_PER_SEC) * 1000);   // ms based on speed
+    // never exceed the safety cap
+    drawMs = Math.min(drawMs, Math.max(800, MAX_MS - HOLD_MS));
+
+    // feed CSS + set initial dash
+    path.style.setProperty('--len', L);
+    path.style.setProperty('--draw', drawMs + 'ms');
+    path.style.strokeDasharray  = L;
+    path.style.strokeDashoffset = L;
+    // kick off the draw next frame
+    requestAnimationFrame(() => { path.style.strokeDashoffset = '0'; });
+  }
+
+  // hide only after draw finishes + the hold
+  window.addEventListener('load', () => {
+    setTimeout(hide, drawMs + HOLD_MS);
+  });
+
+  // let users skip instantly
+  ['click','keydown','touchstart'].forEach(evt =>
+    document.addEventListener(evt, hide, { once:true })
+  );
+
+  // hard safety: never exceed MAX_MS total
+  setTimeout(hide, MAX_MS);
+
+  function hide(){
+    if (!loader) return;
+    loader.classList.add('hide');
+    setTimeout(() => loader.remove(), 400); // matches your fade transition
+  }
+});
+</script>
+
 <body>
+<div id="loader" aria-hidden="true">
+  <svg class="sig" viewBox="0 0 800 200" role="img" aria-label="Manal signature">
+    <!-- placeholder path — swap later with your own signature outline -->
+    <path id="sigPath"
+      d="M40 120c30-60 90-60 120 0 20 40 60 40 100-5 40-45 90-55 140-10 40 35 75 35 110-5 20-25 45-35 70-20 20 12 40 12 70-8"
+      fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <p class="tagline">Loading portfolio…</p>
+</div>
+
   <header>
     <nav>
       <ul>
