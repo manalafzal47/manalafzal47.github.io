@@ -130,6 +130,12 @@ main {
   padding: 1rem;
 }
 
+.case-studies-button{
+  background-color: rgb(231, 226, 221);
+  border-radius: 20px;
+  padding: 7px;
+}
+
 .experience ul {
   list-style: none;
   padding-left: 0;
@@ -173,3 +179,70 @@ a, .project, .tools-box img, .tag, .experiences-logos {
 .project h3{ margin:0; }
 .project p{ margin:.25rem 0; }
 
+:root{
+  --accent:#da911e;        
+  --line:#e6e6e6;
+  --muted:#667085;
+}
+
+/* container */
+.exp-list{
+  list-style:none;
+  margin: 0;
+  padding: 0;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#fff;
+  overflow:hidden;
+}
+
+/* rows */
+.exp-row{
+  position:relative;
+  display:grid;
+  grid-template-columns: 1fr auto;
+  align-items:center;
+  gap:12px;
+  padding:14px 16px;
+  transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s cubic-bezier(.2,.8,.2,1);
+}
+.exp-row + .exp-row{ border-top:1px solid var(--line); }
+
+/* accent bar on hover */
+.exp-row::before{
+  content:"";
+  position:absolute; left:0; top:0; bottom:0; width:4px;
+  background: transparent;
+  transition: background .25s cubic-bezier(.2,.8,.2,1);
+}
+.exp-row:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+.exp-row:hover::before{ background: var(--accent); }
+
+/* text */
+.exp-company{ font-weight:700; }
+.exp-role{ color:var(--muted); margin-top:2px; }
+.exp-dates{ color:var(--muted); white-space:nowrap; }
+
+/* mobile: stack date under company */
+@media (max-width:600px){
+  .exp-row{ grid-template-columns: 1fr; }
+  .exp-dates{ order:2; }
+}
+
+/* makes pixel art render with nearest-neighbor */
+.pixel {
+  image-rendering: pixelated;
+  -ms-interpolation-mode: nearest-neighbor; /* ancient IE */
+}
+
+.avatar-badge{
+  border-radius: 24px;
+  margin: 0 auto 12px;         
+}
+.avatar-badge img{
+  display:block;
+  width: 230px; height: 230px; 
+}

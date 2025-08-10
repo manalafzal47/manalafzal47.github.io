@@ -21,16 +21,21 @@
   <main>
     <section class="intro">
       <div class="intro-image">
-        <img src="css/images/homepage/Manal_avatar.png" alt="Manal avatar" >
-        <a href="https://www.linkedin.com/in/manalafzal/">
-        <a href="https://www.linkedin.com/in/manalafzal/">
+          <div class="avatar-badge">
+            <img class="pixel" 
+                src="css/images/homepage/avatar.png" 
+                width="250" height="250" 
+                alt="Manal avatar — hijab, straight-on">
+          </div>
+
+        <a href="https://www.linkedin.com/in/manalafzal/" target="_blank" rel="noopener noreferrer">
           <button class="connect-btn" >
             Let’s Connect!
           </button></a>
       </div>
       <div class="intro-text">
         <h1>Hi I'm Manal!</h1>
-        <p>A CS Student with the heart of an artist</p>
+        <p>A CS Student with the heart of a designer</p>
         <p>I design experiences that make people feel seen.</p>
         <div class="tags">
           <a class="tag">Ontario Tech University</a>
@@ -72,13 +77,13 @@
             <h3>Internship / Production Times</h3>
             <p>Jan 2025 - Aug 2025</p>
         </div>
-          <img src="css/images/homepage/otr.png" alt="Project 1">
+        <img src="css/images/homepage/otr.png" alt="Project 1">
 
         <p>Figma | Dev | UX</p>
 
         
           <a href="./html/pages/case_studies/productionTimes/productionTimes.html" class="btn">
-            <button>Learn More</button>
+            <button class="case-studies-button">Learn More</button>
           </a>        
 
       </div>
@@ -95,9 +100,9 @@
         <p>Redesign | Wireframes</p>
 
         <a href="./html/pages/case_studies/ontarioTechRacing/ontarioTechRacing.html">
-          <button>Learn More</button>
+          <button class="case-studies-button">Learn More</button>
         </a>
-                </div>
+      </div>
 
       <!-- Project 3 - Ecotrack -->
       <div class="project">
@@ -136,35 +141,48 @@
       </div>
     </section>
 
-    <!-- Experiences Section -->
-    <section class="experience">
-      <h2>Experiences</h2>
-      <table border="0">
-        <tr>
-          <td>Ministry of Transportation</td>
-          <td>Sep 2024 - Present</td>
-        </tr>
-        <tr>
-          <td>DIT Web Solutions</td>
-          <td>Sep. 2023 - Dec. 2023</td>
-        </tr>
-        <tr>
-          <td>Toyz Electronics</td>
-          <td>May. 2023 – Aug. 2023</td>
-        </tr>
-        <tr>
-          <td>Ontario Tech Racing</td>
-          <td>Sep 2022 - Present</td>
-        </tr>
-      </table>
-    </section>
+<!-- Experiences -->
+<section class="experience" id="experience">
+  <h2>Experiences</h2>
+
+  <ol class="exp-list" role="list">
+    <li class="exp-row">
+      <div class="exp-meta">
+        <div class="exp-company">Ministry of Transportation</div>
+        <!-- optional: <div class="exp-role">UI/UX Designer · Frontend</div> -->
+      </div>
+      <time class="exp-dates">Sep 2024 – Present</time>
+    </li>
+
+    <li class="exp-row">
+      <div class="exp-meta">
+        <div class="exp-company">DIT Web Solutions</div>
+        <!-- <div class="exp-role">Frontend Intern</div> -->
+      </div>
+      <time class="exp-dates">Sep 2023 – Dec 2023</time>
+    </li>
+
+    <li class="exp-row">
+      <div class="exp-meta">
+        <div class="exp-company">Toyz Electronics</div>
+      </div>
+      <time class="exp-dates">May 2023 – Aug 2023</time>
+    </li>
+
+    <li class="exp-row">
+      <div class="exp-meta">
+        <div class="exp-company">Ontario Tech Racing</div>
+      </div>
+      <time class="exp-dates">Sep 2022 – Present</time>
+    </li>
+  </ol>
+</section>
 
 
     <!-- Contact Section -->
-    <section class="contact">
+    <!-- <section class="contact">
       <h2>Contact Me</h2>
-      <!-- <img src="../../css/images/envelope.png" alt="Email illustration"> -->
-    </section>
+    </section> -->
   </main>
 
   <footer>
