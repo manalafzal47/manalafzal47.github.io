@@ -16,6 +16,7 @@
 body{
   font-family:'Segoe UI', system-ui, -apple-system, sans-serif;
   margin:0; background:var(--surface); color:var(--ink); line-height:1.6;
+  height: 100vh;
 }
 
 /* centers any section that uses it */
@@ -39,17 +40,7 @@ nav a:hover{ color:var(--accent); }
 nav a:hover::after{ width:100%; }
 nav a:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:4px; }
 
-/* hero */
-.hero img{
-  width:70%; 
-  border-radius:12px; 
-  margin: 0 auto;
-  box-shadow: 0 2px 10px rgba(0,0,0,.06);
-  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), filter var(--dur) var(--ease);
-  animation: fadeSlideUp .6s var(--ease) both;
-}
 
-.hero img:hover{ transform: scale(1.02); box-shadow:0 16px 40px rgba(0,0,0,.18); }
 
 /* main */
 main{ padding: 2rem 0; }
@@ -122,7 +113,15 @@ blockquote, .quote-box{
 .final-section{ margin-bottom:1.25rem; }
 
 /* footer */
-footer{ text-align:center; padding:2rem; background:#f0f0f0; margin-top:3rem; }
+
+footer {
+  text-align: center;
+  padding: 3rem;
+  background: #ffffff;
+  margin-top: 2rem;
+  border-top: 1px solid #ccc;
+
+}
 
 /* ---------- Animations ---------- */
 a, img, .quick-facts p, .old-pages img, .design-breakdown img, .final-section img{
@@ -201,12 +200,24 @@ main {
   padding: 2rem;
 }
 
-.hero img {
-  width: 60%;
-  border-radius: 50px;
-  display:flex;
-  justify-content: center;
+/* --- Hero (match Production Times) --- */
+.hero{
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  padding: 0 2rem;                /* same side padding as main */
 }
+.hero img{
+  display:block;
+  width:100%;
+  border-radius:12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.hero img:hover{
+  transform: scale(1.02);
+  box-shadow: 0 16px 40px rgba(0,0,0,.18);
+}
+
 
 .intro h2 {
   font-size: 1.8rem;
@@ -258,9 +269,11 @@ section {
 
 footer {
   text-align: center;
-  padding: 2rem;
+  padding: 3rem;
   background: #DEECFB;
   margin-top: 4rem;
+  border-top: 1px solid #ccc;
+
 }
 
 .problem-images {

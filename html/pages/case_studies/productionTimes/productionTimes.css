@@ -19,9 +19,8 @@
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  background: #fcfcfc;
+  background: linear-gradient(#F8F9FA, #DEECFB);
   color: #222;
-  line-height: 1.6;
 }
 
 .header-banner {
@@ -56,8 +55,10 @@ nav a {
 
 main {
   max-width: 900px;
+  height: auto;
   margin: auto;
   padding: 2rem;
+  overflow: hidden;
 }
 
 .hero img {
@@ -76,11 +77,8 @@ main {
   margin-bottom: 0.5rem;
 }
 
-.quick-facts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1rem;
+.quick-facts{
+  display:grid; gap:.65rem;
 }
 
 .quick-facts div {
@@ -141,9 +139,11 @@ ul {
 
 footer {
   text-align: center;
-  padding: 2rem;
-  background: #f0f0f0;
+  padding: 3rem;
+  background: #DEECFB;
   margin-top: 4rem;
+  border-top: 1px solid #ccc;
+
 }
 
 
@@ -274,7 +274,6 @@ section a:hover { text-decoration: underline; }
   width: 22px;
   height: 2px;
   margin: 4px auto;
-  background: #fff;
   transition: transform var(--dur, .28s) var(--ease, cubic-bezier(.2,.8,.2,1)),
               opacity var(--dur, .28s) var(--ease, cubic-bezier(.2,.8,.2,1));
   transform-origin: center;
