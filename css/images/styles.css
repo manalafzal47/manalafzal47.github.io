@@ -251,21 +251,31 @@ a, .project, .tools-box img, .tag, .experiences-logos {
   --ease:cubic-bezier(.2,.8,.2,1);
 }
 
-/* overlay */
 #loader{
-  position:fixed; inset:0; display:grid; place-items:center;
-  gap:12px; background:var(--loader-bg); z-index:9999;
-  transition: opacity 120s var(--ease), visibility .4s var(--ease);
+  position:fixed; inset:0; 
+  display:grid; 
+  place-items:center; 
+  gap:12px;
+  background:linear-gradient(#F8F9FA ,#DEECFB); 
+  z-index:9999;
+  transition:opacity .4s ease, visibility .4s ease;
 }
 #loader.hide{ opacity:0; visibility:hidden; pointer-events:none; }
+#loader .tagline{ font:600 .95rem/1.2 system-ui,"Segoe UI",sans-serif; color:#667085; }
 
-/* signature */
-#loader .sig{
-  width:min(60vw, 520px); height:auto; color:var(--accent);
+
+
+
+.signature{
+  width: var(--w); height: var(--h);
+  animation: sig-draw var(--dur) steps(var(--frames)) forwards;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,.12));
 }
-#loader .tagline{
-  font: 600 .95rem/1.2 system-ui, "Segoe UI", sans-serif;
-  color:#667085;
+
+
+@keyframes signature {
+  from { background-position:    0 0; }
+  to   { background-position: calc(-1 * (var(--w) * (var(--frames) - 1))) 0; }
 }
 
 /* stroke-dash animation */

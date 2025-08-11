@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const PX_PER_SEC = 550;    // drawing speed (lower = slower draw)
   const HOLD_MS    = 900;    // how long the full signature stays visible
   const MAX_MS     = 5000;   // absolute safety cap for the whole thing
-  const FIRST_VISIT_ONLY = false; // set false to show every visit
+  const FIRST_VISIT_ONLY = true; // set false to show every visit
   // ---------------------------
 
   if (FIRST_VISIT_ONLY && sessionStorage.getItem('seenLoader')) {
@@ -64,22 +64,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <body>
 <div id="loader" aria-hidden="true">
-  <svg class="sig" viewBox="0 0 800 200" role="img" aria-label="Manal signature">
-    <!-- placeholder path — swap later with your own signature outline -->
-    <path id="sigPath"
-      d="M40 120c30-60 90-60 120 0 20 40 60 40 100-5 40-45 90-55 140-10 40 35 75 35 110-5 20-25 45-35 70-20 20 12 40 12 70-8"
-      fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
+  <div class="signature">
+    <img src="./css/images/homepage/signature.png" alt="signature"
+    style="width: min(60vw, 520px); height: auto;"
+    />
+  </div>
   <p class="tagline">Loading portfolio…</p>
 </div>
 
   <header>
     <nav>
       <ul>
-        <li>Projects</li>
-        <li>Experiences</li>
-        <li>Contact</li>
-        <li>Resume</li>
+        <a href="/">
+          Home
+        </a>
+        <a href="./html/pages/case_studies/productionTimes/productionTimes.html">
+          Production Times Case Study
+        </a>
+        <a href="./html/pages/case_studies/ontarioTechRacing/ontarioTechRacing.html">
+          Ontario Tech Racing Case Study
+        </a>
+        <a href="" target="_blank" rel="noopener">
+          Resume
+        </a>
       </ul>
     </nav>
   </header>
@@ -136,7 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <section class="projects">
       <h2>Selected Works</h2>
-
       <!-- Project 1 - Production Times Ticket Newsletter -->
       <div class="project">
         <div class="project-header">
@@ -146,14 +152,10 @@ document.addEventListener('DOMContentLoaded', () => {
         <img src="css/images/homepage/otr.png" alt="Project 1">
 
         <p>Figma | Dev | UX</p>
-
-        
           <a href="./html/pages/case_studies/productionTimes/productionTimes.html" class="btn">
             <button class="case-studies-button">Learn More</button>
           </a>        
-
       </div>
-
 
       <!-- Project 2 - Ontario Tech Website Redesign -->
       <div class="project">
@@ -214,30 +216,32 @@ document.addEventListener('DOMContentLoaded', () => {
   <ol class="exp-list" role="list">
     <li class="exp-row">
       <div class="exp-meta">
-        <div class="exp-company">Ministry of Transportation</div>
-        <!-- optional: <div class="exp-role">UI/UX Designer · Frontend</div> -->
+        <div class="exp-company">
+          <a href="https://www.ontario.ca/page/ministry-transportation" target="_blank" rel="noopener noreferrer">Ministry of Transportation</a>
+        </div>
       </div>
       <time class="exp-dates">Sep 2024 – Present</time>
     </li>
 
     <li class="exp-row">
       <div class="exp-meta">
-        <div class="exp-company">DIT Web Solutions</div>
-        <!-- <div class="exp-role">Frontend Intern</div> -->
+        <div class="exp-company">
+          <a href="https://www.ditcanada.com/" target="_blank" rel="noopener noreferrer">DIT Web Solutions</a>
+        </div>
       </div>
       <time class="exp-dates">Sep 2023 – Dec 2023</time>
     </li>
 
     <li class="exp-row">
       <div class="exp-meta">
-        <div class="exp-company">Toyz Electronics</div>
+          <a href="https://toyzelectronics.com/" target="_blank" rel="noopener noreferrer">Toyz Electronics</a>
       </div>
       <time class="exp-dates">May 2023 – Aug 2023</time>
     </li>
 
     <li class="exp-row">
       <div class="exp-meta">
-        <div class="exp-company">Ontario Tech Racing</div>
+          <a href="https://ontariotechracing.ca/" target="_blank" rel="noopener noreferrer">Ontario Tech Racing</a>
       </div>
       <time class="exp-dates">Sep 2022 – Present</time>
     </li>
