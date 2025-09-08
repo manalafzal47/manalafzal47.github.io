@@ -1,11 +1,14 @@
 :root{
-  --accent: #264fc2;        /* pick your brand color */
-  --accent-2: #00b3a4;      /* optional secondary */
-  --ink: #222;
-  --ink-subtle: #555;
-  --surface: #fcfcfc;
-  --surface-2: #f3f3f3;
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
 }
+
 
 @media (prefers-reduced-motion: no-preference){
   :root{
@@ -21,6 +24,8 @@ body {
   margin: 0;
   background: linear-gradient(#F8F9FA, #DEECFB);
   color: #222;
+  line-height: 1.65;
+  letter-spacing: .1px;
 }
 
 .header-banner {
@@ -48,15 +53,18 @@ nav a {
 }
 /* context area */
 .context-grid{ display:grid; grid-template-columns: 1.3fr .7fr; gap: 2rem; align-items:start; }
-.context-text p{ margin-top:.25rem; }
+.context-text p{ margin-top:.5rem; }
 .quick-facts{
   display:grid; gap:.65rem;
 }
 
 main {
-  max-width: 900px;
+  max-width: 1080px;   
+  padding-inline: var(--space-6);
+  padding-block: var(--space-7);
+  margin: 0 auto;
+        
   height: auto;
-  margin: auto;
   padding: 2rem;
   overflow: hidden;
 }
