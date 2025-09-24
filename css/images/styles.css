@@ -160,10 +160,9 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin: 0 auto;
   align-items: center;
-  justify-content:center;
-
+  justify-content: space-evenly;
 }
 
 .logo{
