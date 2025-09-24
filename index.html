@@ -13,12 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!loader) return;
 
   const path = document.getElementById('sigPath');
-  // --- knobs you can tweak ---
-  const PX_PER_SEC = 550;    // drawing speed (lower = slower draw)
-  const HOLD_MS    = 900;    // how long the full signature stays visible
-  const MAX_MS     = 5000;   // absolute safety cap for the whole thing
-  const FIRST_VISIT_ONLY = true; // set false to show every visit
-  // ---------------------------
+  const PX_PER_SEC = 550;    
+  const HOLD_MS    = 900;    
+  const MAX_MS     = 5000;   
+  const FIRST_VISIT_ONLY = true; 
 
   if (FIRST_VISIT_ONLY && sessionStorage.getItem('seenLoader')) {
     hide(); return;
@@ -27,8 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let drawMs = 1200; // default
   if (path) {
-    const L = Math.ceil(path.getTotalLength());     // pixels of the stroke
-    drawMs = Math.round((L / PX_PER_SEC) * 1000);   // ms based on speed
+    const L = Math.ceil(path.getTotalLength());     
+    drawMs = Math.round((L / PX_PER_SEC) * 1000);  
     // never exceed the safety cap
     drawMs = Math.min(drawMs, Math.max(800, MAX_MS - HOLD_MS));
 
