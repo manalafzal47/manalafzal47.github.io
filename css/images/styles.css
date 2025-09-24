@@ -390,7 +390,6 @@ a, .project, .tools-box img, .tag, .experiences-logos {
   text-decoration: none;
 }
 .experience a:visited{ color: inherit; }
-.experience a:hover{ text-decoration: underline; }
 .experience a:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:4px; }
 
 
