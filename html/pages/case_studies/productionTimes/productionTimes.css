@@ -408,3 +408,70 @@ header nav ul a[aria-current="page"]{
 header nav ul a[aria-current="page"]::before{
   transform:scaleX(1);
 }
+
+
+
+/* base layout */
+.site-nav{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:1rem; padding: .75rem 1rem; background:#fff; border-bottom:1px solid #ccc;
+}
+.site-nav .brand{ font-weight:700; text-decoration:none; color:#111; }
+
+.nav-toggle{
+  display:none; /* hidden on desktop */
+  border:1px solid #ddd; background:#fff; border-radius:10px;
+  padding:.45rem .7rem; font-weight:600; cursor:pointer;
+}
+
+.nav-list{
+  display:flex; gap:1rem; margin:0; padding:0; list-style:none;
+}
+.nav-list a{ white-space:nowrap; text-decoration:none; color:#111; font-weight:600; }
+
+/* mobile behavior */
+@media (max-width:700px){
+  .nav-toggle{ display:inline-flex; }
+  .nav-list{
+    position:absolute; left:0; right:0; top:56px;
+    z-index: 1000;               /* on top */
+    width: 100%;
+    background:#fff; border-bottom:1px solid #ddd;
+    padding:.75rem 1rem;
+    display:flex; flex-direction:column; gap:.25rem;
+  }
+  .nav-list[hidden]{ display:none; }   /* put this OUTSIDE any @media */
+
+}
+
+/* anchor dropdown under header */
+.site-nav{ position:relative; z-index:10; }
+
+/* hamburger button styling */
+.nav-toggle{
+  display:none; align-items:center; justify-content:center;
+  width:42px; height:42px; padding:8px; border:1px solid #ddd; border-radius:10px;
+  background:#fff; cursor:pointer;
+}
+.nav-toggle .bar{ display:block; width:22px; height:2px; margin:4px 0; background:#111; }
+
+/* desktop menu */
+#siteMenu[hidden]{ display:none; }
+.nav-list{ display:flex; gap:1rem; margin:0; padding:0; list-style:none; }
+.nav-list a{ white-space:nowrap; }
+
+/* mobile */
+@media (max-width:700px){
+  .nav-toggle{ display:inline-flex; }
+  /* collapse menu by default; show as a panel when toggled */
+  #siteMenu{
+    position:absolute; left:0; right:0; top:64px;
+    background:#fff; border-bottom:1px solid #ddd;
+    padding:.75rem 1rem;
+  }
+  #siteMenu[hidden]{ display:none; }
+  .nav-list{ flex-direction:column; gap:.25rem; }
+  .nav-list a{ display:block; padding:.6rem .5rem; border-radius:8px; }
+  .nav-list a:hover,
+  .nav-list a:focus-visible{ background:rgba(0,0,0,.04); outline:none; }
+}

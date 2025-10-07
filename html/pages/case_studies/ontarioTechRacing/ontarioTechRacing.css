@@ -392,3 +392,20 @@ header nav ul a[aria-current="page"]{
 header nav ul a[aria-current="page"]::before{
   transform:scaleX(1);
 }
+
+
+/* mobile */
+@media (max-width:700px){
+  .nav-toggle{ display:inline-flex; }
+  /* collapse menu by default; show as a panel when toggled */
+  #siteMenu{
+    position:absolute; left:0; right:0; top:64px;
+    background:#fff; border-bottom:1px solid #ddd;
+    padding:.75rem 1rem;
+  }
+  #siteMenu[hidden]{ display:none; }
+  .nav-list{ flex-direction:column; gap:.25rem; }
+  .nav-list a{ display:block; padding:.6rem .5rem; border-radius:8px; }
+  .nav-list a:hover,
+  .nav-list a:focus-visible{ background:rgba(0,0,0,.04); outline:none; }
+}

@@ -170,12 +170,17 @@ main {
   height: 50px;
 }
 
-.tools-box{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.tools-box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* ← always 2 per row */
+  gap: clamp(.5rem, 2vw, 1rem);
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: clamp(.75rem, 2.5vw, 1.25rem);
   align-items: center;
 }
+
 
 .buttons a {
   margin: 0 0.5rem;
@@ -413,3 +418,59 @@ a, .project, .tools-box img, .tag, .experiences-logos {
   box-shadow:0 12px 28px rgba(0,0,0,.12);
 }
 .contact-btn svg{ width:22px; height:22px; stroke:currentColor; fill:none; }
+
+@media (max-width: 700px) {
+  .intro {
+    grid-template-columns: 1fr;   /* collapse into one column */
+    text-align: center;           /* center the text & button */
+    gap: 1rem;
+  }
+
+  .intro-image img {
+    width: min(60vw, 200px);      /* keep avatar scaled down */
+    margin: 0 auto;
+  }
+
+  .connect-btn {
+    width: 100%;
+    max-width: 440px;
+    margin-top: 0.5rem;
+  }
+  .tools-box{
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* base layout */
+.site-nav{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:1rem; padding: .75rem 1rem; background:#fff; border-bottom:1px solid #ccc;
+}
+.site-nav .brand{ font-weight:700; text-decoration:none; color:#111; }
+
+.nav-toggle{
+  display:none; /* hidden on desktop */
+  border:1px solid #ddd; background:#fff; border-radius:10px;
+  padding:.45rem .7rem; font-weight:600; cursor:pointer;
+}
+
+.nav-list{
+  display:flex; gap:1rem; margin:0; padding:0; list-style:none;
+}
+.nav-list a{ white-space:nowrap; text-decoration:none; color:#111; font-weight:600; }
+
+/* mobile behavior */
+@media (max-width:700px){
+  .nav-toggle{ display:inline-flex; }
+  .nav-list{
+    position:absolute; left:0; right:0; top:56px;
+    z-index: 1000;               /* on top */
+    width: 100%;
+    background:#fff; border-bottom:1px solid #ddd;
+    padding:.75rem 1rem;
+    display:flex; flex-direction:column; gap:.25rem;
+  }
+  .nav-list[hidden]{ display:none; }   /* put this OUTSIDE any @media */
+
+}

@@ -58,6 +58,28 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => loader.remove(), 400); // matches your fade transition
   }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btn  = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('navMenu');
+  if (!btn || !menu) return;
+
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    menu.hidden = expanded;
+  });
+
+  // close on escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true'){
+      btn.setAttribute('aria-expanded','false');
+      menu.hidden = true;
+      btn.focus();
+    }
+  });
+});
+
 </script>
 
 <body>
@@ -67,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 </div>
 
-  <header>
+  <!-- <header>
     <nav>
       <ul>
         <a href="./">
@@ -84,7 +106,25 @@ document.addEventListener('DOMContentLoaded', () => {
         </a>
       </ul>
     </nav>
-  </header>
+  </header> -->
+
+<header class="site-header">
+  <nav class="site-nav">
+    <a class="brand" href="/">Manal</a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navMenu">
+      Nav
+    </button>
+
+    <ul id="navMenu" class="nav-list" hidden>
+      <li><a href="./">Home</a></li>
+      <li><a href="html/pages/case_studies/productionTimes/productionTimes.html">Production Times Case Study</a></li>
+      <li><a href="html/pages/case_studies/ontarioTechRacing/ontarioTechRacing.html">Ontario Tech Racing Case Study</a></li>
+      <li><a href="https://drive.google.com/file/d/1u5amQ5spoVT0QOSmmGiQwOrp5nrpgWQx/view?usp=sharing" target="_blank" rel="noopener">Resume</a></li>
+    </ul>
+  </nav>
+</header>
+
 
   <main>
     <section class="intro">
