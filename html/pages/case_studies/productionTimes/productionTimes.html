@@ -3,11 +3,231 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Production Times Case Study</title>
+  <title>Production Times Case Study — Manal Afzal</title>
+  <meta name="description" content="Case study: redesigning Production Times, an internal ticket analytics dashboard for the Ontario Public Service, replacing a manual Excel and PowerPoint workflow.">
   <link rel="stylesheet" href="../productionTimes/productionTimes.css" />
 </head>
 
-  <script>
+<body>
+
+<div class="header-banner">
+  <header class="site-nav">
+    <a class="brand" href="../../../index.html">Manal</a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="siteMenu">
+      <span class="sr-only">Nav</span>
+      <span class="bar" aria-hidden="true"></span>
+      <span class="bar" aria-hidden="true"></span>
+      <span class="bar" aria-hidden="true"></span>
+    </button>
+
+    <nav id="siteMenu" aria-label="Primary" hidden>
+      <ul class="nav-list">
+          <li><a href="../../../index.html">Home</a></li>
+        <!-- FIXED: this href was empty, which reloaded the page unpredictably -->
+        <li><a href="#" aria-current="page">Production Times Case Study</a></li>
+        <li><a href="../ontarioTechRacing/ontarioTechRacing.html">Ontario Tech Racing Case Study</a></li>
+        <li><a class="nav-resume" href="https://drive.google.com/file/d/1u5amQ5spoVT0QOSmmGiQwOrp5nrpgWQx/view?usp=sharing" target="_blank" rel="noopener">Resume <span aria-hidden="true">↗</span></a></li>
+      </ul>
+    </nav>
+  </header>
+</div><!-- /.header-banner (this div was never closed before) -->
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <img src="../../../../css/images/homepage/production_banner.png" alt="Screens from the redesigned Production Times dashboard" class="hero-img" />
+      </section>
+
+    <!-- Intro -->
+    <section class="intro">
+      <h1>Internship / Production Times Ticket Newsletter</h1>
+
+      <div class="context-text">
+        <p class="subtitle">
+          Production Times is an internal ticket processing system for
+          the Ontario Public Service in the Digital Solutions Branch.
+          It <b>analyzes</b> tickets created by developers for the three major data
+          streams.
+        </p>
+      </div>
+
+      <div class="quick-facts">
+        <div><strong>Role</strong><br>Software Engineer &amp; Frontend Developer</div>
+        <div><strong>Tools</strong><br>Figma, FigJam, React, React Charts, Excel, PowerPoint</div>
+        <div><strong>Timeline</strong><br>Jan 2025 – Aug 2025</div>
+        <div><strong>Team</strong><br>4 Students</div>
+      </div>
+    </section>
+    <!-- NOTE: a second, empty <section class="intro"> used to open here and never
+         closed, which nested every following section inside it. Removed. -->
+
+    <!-- Problem Section -->
+    <section class="problem">
+      <h2>Problem</h2>
+      <p>Employees struggled to track ticketing metrics across three systems, leading to delays and miscommunication.</p>
+      <p>The manual ticket processing system had a few problems:</p>
+      <ul>
+        <li><strong>7-8 Excel files</strong> used manually to track tickets.</li>
+        <li><strong>20+ hours/month</strong> spent analyzing ticket data.</li>
+        <li><strong>5+ hours/month</strong> spent formatting PowerPoint newsletters.</li>
+        <li>Manual creation of graphs and charts.</li>
+        <li>2-3 day delays in retrieving missing ticket info from developers.</li>
+      </ul>
+      <p>
+        These issues made it difficult for leadership to evaluate team performance,
+        and caused co-op students to spend hours tracking down missing details,
+        which sometimes delayed newsletter releases.
+      </p>
+      <div class="problem-cards">
+        <div class="card">
+          <h3>7+ Excel Files</h3>
+          <p>used to manually compile ticket data before</p>
+        </div>
+
+        <div class="card">
+          <h3>20 Hours/Month</h3>
+          <p>spent manually analyzing ticket data</p>
+        </div>
+
+        <div class="card">
+          <h3>3 major ticket streams</h3>
+          <p>unified into one dashboard</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design Process -->
+    <section class="design-process">
+      <h2>Design process</h2>
+      <p>
+      We began the design sprint with minimal requirements, to encourage all four of us designers
+      to interpret the problem creatively. I proposed designing a flexible newsletter application
+      that allows users to preview templates or start a new newsletter from scratch.
+      I emphasized a "past newsletters" browsing experience so that users could also access any
+      missed information from past newsletters, making it easy to revisit previous reports and
+      avoid redundant work.
+      </p>
+
+      <p>I wanted the user to be able to preview the newsletter from the app,
+         and to either start a new newsletter from scratch or use the template.</p>
+
+      <div class="initial-design-container">
+        <img
+          class="inital-design"
+          src="../../../../css/images/productiontimes/inital design sprint/homepage.png"
+          alt="Initial design sprint: newsletter app homepage"
+        />
+        <img
+          class="inital-design"
+          src="../../../../css/images/productiontimes/inital design sprint/project-name.png"
+          alt="Initial design sprint: naming a new newsletter"
+        />
+        <img
+          class="inital-design"
+          src="../../../../css/images/productiontimes/inital design sprint/preview.png"
+          alt="Initial design sprint: newsletter preview screen"
+        />
+      </div>
+
+      <p>
+        After our initial design sprint, all the interns met to review each other's work with our
+        supervisor. We discussed the pros and cons of each design, identifying overlaps and gaps.
+        Some of these ideas were kept, and others were iterated on or dropped based on user
+        clarity. Once we aligned on a shared direction, we refined the work into one final
+        design.
+      </p>
+
+      <img src="../../../../css/images/productiontimes/past-design.png" alt="Consolidated design combining ideas from all four interns"/>
+    </section>
+
+    <!-- Feedback + Iterations -->
+    <section class="feedback">
+      <h2>Developer feedback</h2>
+      <p>We presented our prototypes to senior developers. They suggested:</p>
+      <ul>
+        <li>Prioritizing critical graphs, which were buried at the bottom of the dashboard — Defect Root Cause needed to move higher.</li>
+        <li>Creating an individual page for SSM and another for all three streams, mirroring the old PowerPoint that was sent out.</li>
+      </ul>
+      <p>Based on this, I restructured the layout and mimicked the old PowerPoint format.</p>
+
+      <figure>
+        <img src="../../../../css/images/productiontimes/wireframe.png" alt="Wireframe iterations for the dashboard layout"/>
+        <figcaption>Here's how my wireframe evolved during this process.</figcaption>
+      </figure>
+
+      <figure>
+        <img src="../../../../css/images/ontarioTechRacing/wireframe_breakdown.png" alt="Final wireframe breakdown" />
+        <figcaption>Final wireframe breakdown.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Iteration Breakdown -->
+    <section class="iterations">
+      <h2>Iterations</h2>
+      <p>We presented the app three times and refined it based on feedback. Major changes included:</p>
+      <!-- FIXED: these images were direct children of a <ul>, which isn't valid -->
+      <div class="iteration-images">
+        <img src="../../../../css/images/productiontimes/navigation_across_pages.png" alt="Revised navigation across pages"/>
+        <img src="../../../../css/images/productiontimes/old_stats_past_year.png" alt="Past-year stats component"/>
+        <img src="../../../../css/images/productiontimes/calendar_component.png" alt="Calendar component"/>
+      </div>
+    </section>
+
+    <!-- Implementation -->
+    <section class="shipped">
+      <h2>Implementation</h2>
+      <div class="grid">
+        <div>
+          <h3>Design</h3>
+          <ul>
+            <li>Redesigned the entire app with a modern blue palette</li>
+            <li>Created "Stats of the Month" and "Joke of the Month" components</li>
+            <li>Used React Charts for responsive graphs</li>
+          </ul>
+          <img src="../../../../css/images/productiontimes/designs_illustration.png" alt="Illustration of the final design system components">
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Designs -->
+    <section class="final-designs">
+      <h2>Final designs</h2>
+      <img src="../../../../css/images/productiontimes/new development/loadingScreen.jpeg" alt="Final loading screen" />
+      <img src="../../../../css/images/productiontimes/new development/dashboard.jpeg" alt="Final dashboard" />
+      <img src="../../../../css/images/productiontimes/new development/ssmPage.jpeg" alt="Final SSM stream page" />
+    </section>
+
+    <!-- Learnings -->
+    <section class="reflection">
+      <h2>Learnings and reflections</h2>
+        <p>
+          My biggest takeaway from this project was realizing how crucial documentation is
+          during handoffs.
+        </p>
+
+        <ul>
+          <li>
+            There were many intern handoffs as terms ended,
+            and the lack of clear process notes and component guidelines made it difficult
+            to iterate confidently.
+          </li>
+          <li>
+            This experience taught me the value of design systems
+            and onboarding materials. I also learned how much the design process can change
+            depending on the users.
+          </li>
+        </ul>
+    </section>
+  </main>
+
+  <footer>
+      <p class="microcopy">built with lots of iterations and coffee</p>
+
+    <p>&copy; 2026 Manal Afzal</p>
+  </footer>
+
+<script>
 document.addEventListener('DOMContentLoaded', () => {
   const btn  = document.querySelector('.nav-toggle');
   const menu = document.getElementById('siteMenu');
@@ -33,263 +253,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<body>
-<div class="header-banner">
-  <!-- <header>
-    <nav>
-      <ul>
-        <a href="../../../../index.html">
-          Home
-        </a>
-        <a href="">
-          Production Times Case Study
-        </a>
-        <a href="../ontarioTechRacing/ontarioTechRacing.html">
-          Ontario Tech Racing Case Study
-        </a>
-        <a href="https://drive.google.com/file/d/1u5amQ5spoVT0QOSmmGiQwOrp5nrpgWQx/view?usp=sharing" target="_blank" rel="noopener">
-          Resume
-        </a>
-      </ul>
-    </nav>
-  </header> -->
-
-    <header class="site-nav">
-    <a class="brand" href="../../../../index.html">Manal</a>
-
-    <button class="nav-toggle" aria-expanded="false" aria-controls="siteMenu">
-      <span class="sr-only">Nav</span>
-      <!-- simple 3 bars -->
-      <span class="bar" style="background:#111"></span>
-      <span class="bar" style="background:#111"></span>
-      <span class="bar" style="background:#111"></span>
-    </button>
-
-    <nav id="siteMenu" aria-label="Primary" hidden>
-      <ul class="nav-list">
-        <li><a href="../../../../index.html">Home</a></li>
-        <li><a href="">Production Times Case Study</a></li>
-        <li><a href="../ontarioTechRacing/ontarioTechRacing.html">Ontario Tech Racing Case Study</a></li>
-        <li><a href="https://drive.google.com/file/d/1u5amQ5spoVT0QOSmmGiQwOrp5nrpgWQx/view?usp=sharing" target="_blank" rel="noopener">Resume</a></li>
-      </ul>
-    </nav>
-  </header>
-
-
-    <main>
-      <!-- Hero Section -->
-      <section class="hero">
-        <img src="../../../../css/images/homepage/production_banner.png" alt="Production Times Overview" class="hero-img" />
-      </section>
-
-    <!-- Intro -->
-     <section class="intro">
-      <h1>Internship / Production Times Ticket Newsletter</h1>
-
-      <h3>Demoed</h3>
-
-     
-      <div class="context-text">
-        <p class="subtitle">
-          Production Times is an internal ticket processing system for 
-          the Ontario Public Service in the Digital Solutions Branch. 
-          It <b>analyzes</b> tickets created by developers for the three major data 
-          streams.
-        </p>
-      </div>
-
-      <div class="quick-facts">
-        <div><strong>Role</strong><br>UI/UX Designer & Frontend Developer</div>
-        <div><strong>Tools</strong><br>Figma, Figjam, React, React-charts, Excel, PowerPoint</div>
-        <div><strong>Timeline</strong><br>Jan 2025 - August 2025</div>
-        <div><strong>Team</strong><br>4 Students</div>
-      </div>
-
-      </section>
-    <section class="intro">
-
-    <!-- Problem Section -->
-    <section class="problem">
-      <h2>PROBLEM</h2>
-      <p>Employees struggled to track ticketing metrics across three systems, leading to delays and miscommunication</p>
-      <p>The manual ticket processing system had a few problems:</p>
-      <ul>
-        <li><strong>7-8 Excel files</strong> used manually to track tickets.</li>
-        <li><strong>20+ hours/month</strong> spent analyzing ticket data.</li>
-
-        <li><strong>5+ hours/month</strong> spent formatting PowerPoint newsletters.</li>
-        <li>Manual creation of graphs and charts.</li>
-        <li>2-3 Days delays in retrieving missing ticket info from developers.</li>
-      </ul>
-      <p> 
-        These issues made it difficult for leadership to evaluate team performances, 
-        and caused coop students to spend hours tracking down missing details, 
-        which sometimes delayed newsletter releases. 
-      </p>
-      <div class="problem-cards">
-        <div class="card">
-          <h2>7+ Excel Files</h2>
-          <p>used to manually compile ticket data before  </p>
-        </div>
-
-        <div class="card">
-          <h2>20 Hours/Month</h2>
-          <p>spent manually analyzing ticket data  </p>
-        </div>
-
-        <div class="card">
-          <h2>3 major ticket streams</h2>
-          <p>Unified into one dashboard  </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Design Process -->
-    <section class="design-process">
-      <h2>DESIGN PROCESS</h2>
-      <p>
-      We began the design sprint with minimal requirements, to encourage all of us, 4 designers, 
-      to interpret the problem creatively. I proposed designing a flexible newsletter application, 
-      that allows users to preview templates or start a new newsletter application from scratch. 
-      I emphasized a “past newsletters” browsing experience so that users could also access any 
-      missed information from past newsletters. I prioritized accessibility to past newsletters, 
-      making it easy for users to revisit previous reports and avoid redundant work.
-    </p>
-
-      <p>Browse Past Templates from initial design sprint</p>
-
-      <p>I wanted the user to be able to preview the newsletter from the app,
-         and to be able to either start a new newsletter from scratch or use the template.</p>
-      <div class="initial-design-container">
-        <img 
-          class="inital-design" 
-          src="../../../../css/images/productiontimes/inital design sprint/homepage.png" 
-          alt="Design Process" 
-        />
-        <img 
-          class="inital-design" 
-          src="../../../../css/images/productiontimes/inital design sprint/project-name.png" 
-          alt="Design Process" 
-        />
-        <img 
-          class="inital-design" 
-          src="../../../../css/images/productiontimes/inital design sprint/preview.png" 
-          alt="Design Process" 
-        />
-      </div>
-
-      <p>
-        After our initial design sprint, all the interns met to review each other’s work with our 
-        supervisor. We discussed the pros and cons of each design, identifying overlaps and gaps. 
-        Some of these ideas were kept, and others were iterated on or dropped based on user 
-        clarity. Once we aligned on a shared direction, we refined the design into one final 
-        design, based on all the intern work. 
-      </p>
-
-      <img src="../../../../css/images/productiontimes/past-design.png" alt="past-designs"/>
-    </section>
-
-    <!-- Feedback + Iterations -->
-    <section class="feedback">
-      <h2>DEVELOPER FEEDBACK</h2>
-        <p>Based on this, I restructured the layout and mimicked the old PowerPoint format.</p>
-          <p>
-            We presented our prototypes to senior developers. They suggested:
-            <ul>
-              <li>
-                One key feedback was the need 
-                to prioritize critical graphs, which were buried down at the bottom of the dashboard. Defect Root Cause higher on the dashboard</li>
-              <li>
-                I also created individual pages for 
-                SSM and another page for all the three streams which was reflective to the
-                old PowerPoint that was sent out.  
-              </li>
-            </ul>
-        </p>
-      
-      <div>
-        <img src="../../../../css/images/productiontimes/wireframe.png"/>
-        <p>Here’s how my wire frame evolved during this process.</p>
-      </div>
-
-      <div>
-        <img src="../../../../css/images/ontarioTechRacing/wireframe_breakdown.png" alt="Wireframes from Redesign" />
-        <p>Final Wireframe Breakdown.</p>
-      </div>
-
-    </section>
-
-    <!-- Iteration Breakdown -->
-    <section class="iterations">
-      <h2>ITERATIONS</h2>
-      <p>We demoed the app 3 times and refined based on feedback. Major changes included:</p>
-      <ul>
-        <img src="../../../../css/images/productiontimes/navigation_across_pages.png" alt="navigation across pages"/>
-        <img src="../../../../css/images/productiontimes/old_stats_past_year.png" alt="old stats past year"/>
-        <img src="../../../../css/images/productiontimes/calendar_component.png" alt="calendar component"/>
-      </ul>
-    </section>
-
-    <!-- What I Shipped -->
-    <section class="shipped">
-      <h2>SHIPPED</h2>
-      <div class="grid">
-        <div>
-          <h4>Design</h4>
-          <ul>
-            <li>Redesigned entire app with modern blue palette</li>
-            <li>Created "Stats of the Month" and "Joke of the Month" components</li>
-            <li>Used React Charts for responsive graphs</li>
-          </ul>
-          <img src="../../../../css/images/productiontimes/designs_illustration.png" alt="">
-
-        </div>
-        <!-- <div>
-          <h4>Frontend</h4>
-          <ul>
-            <li>Built dynamic SSM and All Streams routes</li>
-            <li>Connected backend to new chart pipelines</li>
-            <li>Created UI for filters and stream selection</li>
-          </ul>
-        </div> -->
-      </div>
-    </section>
-
-    <!-- Final Designs -->
-    <section class="final-designs">
-      <h2>FINAL DESIGNS</h2>
-      <img src="../../../../css/images/productiontimes/new development/loadingScreen.jpeg" alt="Loading Screens Final UI" />
-      <img src="../../../../css/images/productiontimes/new development/dashboard.jpeg" alt="Homepage Final UI" />
-      <img src="../../../../css/images/productiontimes/new development/ssmPage.jpeg" alt="SSM Final UI" />
-    </section>
-
-    <!-- Learnings -->
-    <section class="reflection">
-      <h2>LEARNINGS & REFLECTIONS </h2>
-        <p>
-          From this project, my biggest takeaways was realizing how crucial documentation is 
-          during hand offs. 
-        </p>
-
-        <ul>
-          <li>
-            There were many intern hand offs as the terms ended, 
-            and the lack of clear process notes and component guidelines made it difficult 
-            to iterate confidently. 
-          </li>
-          <li>
-            This experience taught me the value of design systems 
-            and onboarding materials. I also learned how the design process can change 
-            massively depending on the users. 
-          </li>
-        </ul>
-    </section>
-  </main>
-
-  <footer>
-      <p class="microcopy">designed with lots of iterations and coffee</p>
-
-    <p>© 2025 Manal Afzal</p>
-  </footer>
 </body>
 </html>

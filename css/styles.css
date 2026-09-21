@@ -1,0 +1,843 @@
+/* ==========================================================================
+   Manal Afzal — portfolio home
+   --------------------------------------------------------------------------
+   Organised as: tokens → reset → type → nav → sections → components →
+   motion/a11y → responsive. One rule per thing, no duplicates.
+
+   The TOKENS block below is duplicated at the top of ontarioTechRacing.css
+   and productionTimes.css. If you change a colour, change it in all three
+   (or pull the block into css/tokens.css and add a <link> to each page).
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Inter:wght@400;500;600&display=swap');
+
+/* --------------------------------------------------------------------------
+   TOKENS
+   -------------------------------------------------------------------------- */
+:root{
+  /* type */
+  --font-display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+  /* ink + surface */
+  --paper:      #FCFCFD;
+  --surface:    #FFFFFF;
+  --ink:        #15171C;
+  --ink-2:      #4A5160;   /* secondary body text */
+  --ink-3:      #6B7280;   /* meta, dates, captions — AA on white at 4.8:1 */
+  --line:       #E3E6EC;
+  --line-strong:#CBD1DC;
+
+  /* accent: blue carries navigation, links, structure */
+  --accent:     #2447B8;
+  --accent-200: #C6D2F1;   /* offset shadows */
+  --accent-50:  #EEF2FD;   /* hover fills */
+
+  /* warm: reserved for "act on this" only — CTA + in-progress badge */
+  --warm:       #A85F1E;
+  --warm-50:    #FDF4E9;
+
+  /* spacing scale */
+  --s1: .25rem; --s2: .5rem;  --s3: .75rem; --s4: 1rem;
+  --s5: 1.5rem; --s6: 2rem;   --s7: 3rem;   --s8: 4rem;
+
+  /* radii */
+  --r-sm: 6px; --r: 10px; --r-lg: 14px; --r-pill: 999px;
+
+  /* motion — one duration for UI, one for the loader. Nothing else. */
+  --dur: 180ms;
+  --dur-slow: 280ms;
+  --ease: cubic-bezier(.2,.8,.2,1);
+
+  /* layout */
+  --measure: 68ch;
+  --page: 880px;
+
+  /* loader — mirrored by the constants in the inline script */
+  --sig-draw: 900ms;
+  --sig-hold: 350ms;
+  --sig-fade: 400ms;
+  --sig-ease: cubic-bezier(.62,.03,.31,1);
+}
+
+/* --------------------------------------------------------------------------
+   RESET + BASE
+   -------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html{
+  background: var(--paper);
+  -webkit-text-size-adjust: 100%;
+}
+
+body{
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Don't force a font on everything — let buttons and inputs opt in instead.
+   The old `* { font-family }` rule made per-element typography impossible. */
+button, input, select, textarea { font: inherit; color: inherit; }
+
+img{ max-width: 100%; height: auto; display: block; }
+
+figure{ margin: 0; }
+
+h1, h2, h3, h4{
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+h1{ font-size: clamp(2rem, 5vw, 2.6rem); }
+h2{ font-size: 1.55rem; letter-spacing: -0.02em; }
+h3{ font-size: 1.05rem; letter-spacing: -0.01em; }
+
+p{ margin: 0; }
+
+a{ color: var(--accent); }
+
+/* One focus style, everywhere. */
+:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+main{
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: var(--s7) var(--s5) var(--s8);
+}
+
+/* Consistent rhythm between the big sections. Replaces the ad-hoc
+   margin-bottom values that made the gaps uneven. */
+main > section + section{ margin-top: var(--s8); }
+
+.projects h2,
+.tools h2,
+.experience h2,
+.contact h2{
+  position: relative;
+  padding-bottom: var(--s3);
+  margin-bottom: var(--s5);
+}
+.projects h2::after,
+.tools h2::after,
+.experience h2::after,
+.contact h2::after{
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 34px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   HEADER / NAV
+   -------------------------------------------------------------------------- */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(252,252,253,.82);
+  backdrop-filter: saturate(150%) blur(10px);
+  -webkit-backdrop-filter: saturate(150%) blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-nav{
+  max-width: var(--page);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s4);
+  padding: var(--s3) var(--s5);
+}
+
+.site-nav .brand{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav-toggle{
+  display: none;              /* desktop: the list is always visible */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  border-radius: var(--r);
+  padding: .4rem .7rem;
+  font-size: .875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.nav-toggle-bar{
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+}
+.nav-toggle:hover{ border-color: var(--accent); }
+
+.nav-list{
+  display: flex;
+  align-items: center;
+  gap: var(--s5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-list a{
+  position: relative;
+  display: inline-block;
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: .95rem;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: .2rem 0;
+  transition: color var(--dur) var(--ease);
+}
+
+/* Underline wipes in from the left on hover and stays put for the current
+   page. It's the only nav decoration — the old file had three competing ones. */
+.nav-list a::after{
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur) var(--ease);
+}
+.nav-list a:hover{ color: var(--accent); }
+.nav-list a:hover::after{ transform: scaleX(1); }
+.nav-list a[aria-current="page"]{ color: var(--accent); }
+.nav-list a[aria-current="page"]::after{ transform: scaleX(1); }
+.nav-resume{
+  padding: .45rem .75rem !important;
+  color: var(--ink) !important;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-pill);
+}
+.nav-resume::after{ display: none; }
+.nav-resume:hover{ border-color: var(--accent); background: var(--accent-50); }
+
+/* --------------------------------------------------------------------------
+   INTRO
+   -------------------------------------------------------------------------- */
+.intro{
+  display: grid;
+  /* was 220px with a 230px avatar inside it — the avatar overflowed its own
+     column. Column and avatar are now pinned to the same value. */
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: var(--s6);
+  align-items: start;
+  margin-bottom: 0;
+}
+
+.intro-image{ display: grid; justify-items: center; gap: var(--s4); }
+
+/* The one deliberately playful element on the site: a hard, unblurred offset
+   behind the pixel avatar. Crisp edges echo the pixel art; no soft grey blur. */
+.avatar-badge{
+  width: 200px;
+  height: 200px;
+  border: 2px solid var(--ink);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: 6px 6px 0 var(--accent-200);
+  overflow: hidden;
+  margin: 0;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.avatar-badge:hover{
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--accent-200);
+}
+.avatar-badge img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;   /* the old 50% from .intro-image img fought the badge */
+}
+
+.pixel{
+  image-rendering: pixelated;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+.intro-image a{ display: block; width: 100%; }
+
+.connect-btn{
+  width: 100%;
+  padding: .6rem 1rem;
+  background: var(--warm);
+  color: #fff;
+  border: none;
+  border-radius: var(--r-pill);
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), filter var(--dur) var(--ease);
+}
+.connect-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 3px 0 #7D4514;
+  filter: saturate(1.1);
+}
+.connect-btn:active{ transform: translateY(0); box-shadow: none; }
+
+.intro-text{ display: grid; gap: var(--s3); }
+.intro-kicker,
+.project-label{
+  color: var(--accent) !important;
+  font-size: .8125rem !important;
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+.intro-text h1{ margin-bottom: var(--s1); }
+.intro-lede{
+  color: var(--ink) !important;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+  line-height: 1.3;
+  max-width: 30ch !important;
+}
+.intro-text p{ color: var(--ink-2); max-width: var(--measure); }
+.intro-actions{ display: flex; flex-wrap: wrap; align-items: center; gap: var(--s4); margin-top: var(--s2); }
+.primary-action,
+.text-action{ font-size: .9rem; font-weight: 600; text-decoration: none; }
+.primary-action{ padding: .65rem 1rem; background: var(--ink); color: #fff; border-radius: var(--r-pill); transition: transform var(--dur) var(--ease), background var(--dur) var(--ease); }
+.primary-action:hover{ background: var(--accent); color: #fff; transform: translateY(-2px); }
+.text-action{ color: var(--ink); }
+.text-action:hover{ color: var(--accent); }
+
+.tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);   /* was 1rem gap PLUS 4px margin on each tag — double spaced */
+  margin-top: var(--s2);
+}
+
+.tag{
+  display: inline-block;
+  margin: 0;
+  padding: .28rem .7rem;
+  font-size: .8125rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.tag:hover{
+  transform: translateY(-1px);
+  border-color: var(--line-strong);
+  box-shadow: 0 2px 0 var(--line);
+}
+
+.experiences-logos{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s5);
+  margin-top: var(--s3);
+}
+
+/* Logos come in at different aspect ratios — contain keeps them from
+   stretching, and a fixed box keeps the row on one baseline. */
+.logo{
+  width: 64px;
+  height: 36px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: .62;
+  transition: filter var(--dur) var(--ease), opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.rbc-logo{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 36px;
+  text-decoration: none;
+  transition: transform var(--dur) var(--ease);
+}
+.rbc-logo .rbc-image{
+  filter: none;
+  opacity: 1;
+}
+.experiences-logos a:hover.rbc-logo{
+  transform: translateY(-2px);
+}
+.experiences-logos a:hover.rbc-logo .rbc-image{
+  filter: none;
+  opacity: 1;
+}
+.experiences-logos a:hover .logo{
+  filter: grayscale(0);
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   PROJECTS
+   -------------------------------------------------------------------------- */
+.projects{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: var(--s5);
+  align-items: stretch;
+}
+.projects h2{ grid-column: 1 / -1; }
+
+.project{
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: var(--s4);
+  margin: 0;
+  transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.project:hover{
+  transform: translateY(-3px);
+  border-color: var(--line-strong);
+}
+
+/* Your screenshots are all different shapes, which made the cards ragged.
+   A fixed ratio crops them to a common height. */
+.project > img{
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: var(--r);
+  background: var(--accent-50);
+  margin-bottom: var(--s2);
+}
+
+.project-header{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s2);
+}
+.project-label{ margin: 0; }
+.project-header .project-label{ flex-basis: 100%; }
+.project-header p{
+  color: var(--ink-3);
+  font-size: .875rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.project p{ color: var(--ink-2); font-size: 1rem; }
+
+.project p.project-tech{
+  font-size: .8125rem;
+  color: var(--ink-3);
+  margin-top: var(--s1);
+}
+
+.project-status{
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: var(--s2);
+  padding: .1rem .5rem;
+  font-family: var(--font-body);
+  font-size: .6875rem;
+  font-weight: 600;
+  letter-spacing: .01em;
+  color: var(--warm);
+  background: var(--warm-50);
+  border: 1px solid #F0DCC2;
+  border-radius: var(--r-pill);
+}
+
+.project-ph{
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--r);
+  background: var(--accent-50);
+  color: var(--ink-3);
+  font-size: .875rem;
+  margin-bottom: var(--s2);
+}
+
+/* margin-top:auto pins every card's button to the bottom, so buttons line up
+   across the row even when the blurbs are different lengths. */
+.case-studies-button{
+  align-self: flex-start;
+  margin-top: auto;
+  display: inline-block;
+  padding: .45rem .9rem;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-pill);
+  font-size: .875rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.case-studies-button:hover{
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 0 var(--accent-200);
+}
+.case-studies-button:active{ transform: translateY(0); box-shadow: none; }
+
+/* --------------------------------------------------------------------------
+   TOOLS
+   -------------------------------------------------------------------------- */
+.tools-box{
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: var(--s5);
+}
+
+/* .row-1 / .row-2 had no rules at all, so the icons just ran inline at
+   whatever size the files happened to be. */
+.row-1, .row-2{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s5);
+}
+.row-1{ margin-bottom: var(--s5); }
+
+.tools-box img{
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  transition: transform var(--dur) var(--ease);
+}
+.tools-box img:hover{ transform: translateY(-3px) scale(1.06); }
+
+.tech-logos{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+  margin-bottom: var(--s5);
+}
+.tech-logo{
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: 42px;
+  padding: .4rem .65rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  color: var(--ink-2);
+  font-size: .8125rem;
+  font-weight: 500;
+}
+.tech-logo img{
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.tools-text{
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: var(--s3) var(--s5);
+  margin: var(--s5) 0 0;
+  padding-top: var(--s5);
+  border-top: 1px solid var(--line);
+}
+.tools-text dt{
+  margin: 0;
+  font-weight: 600;
+  font-size: .8125rem;
+  color: var(--ink-3);
+  padding-top: .15rem;
+}
+.tools-text dd{
+  margin: 0;
+  color: var(--ink-2);
+  font-size: .9375rem;
+  max-width: var(--measure);
+}
+
+/* --------------------------------------------------------------------------
+   EXPERIENCE
+   -------------------------------------------------------------------------- */
+.exp-list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.exp-row{
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: var(--s3) var(--s5);
+  padding: var(--s4) var(--s5);
+  transition: background-color var(--dur) var(--ease);
+}
+.exp-row + .exp-row{ border-top: 1px solid var(--line); }
+
+.exp-row::before{
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: transparent;
+  transition: background-color var(--dur) var(--ease);
+}
+/* Tint + accent bar instead of the old lift-and-drop-shadow. Rows inside a
+   bordered list shouldn't float off it. */
+.exp-row:hover{ background: var(--accent-50); }
+.exp-row:hover::before{ background: var(--accent); }
+
+.exp-company{
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+.exp-desc{
+  margin: var(--s1) 0 0;
+  color: var(--ink-2);
+  font-size: .9rem;
+  max-width: 58ch;
+}
+.exp-dates{
+  color: var(--ink-3);
+  font-size: .8125rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.experience a{ color: inherit; text-decoration: none; }
+.experience a:visited{ color: inherit; }
+.experience a:hover{ color: var(--accent); }
+
+/* --------------------------------------------------------------------------
+   CONTACT + FOOTER
+   -------------------------------------------------------------------------- */
+.contact-row{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s3);
+}
+
+.contact-btn{
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.contact-btn:hover{
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 3px 0 var(--accent-200);
+}
+.contact-btn:active{ transform: translateY(0); box-shadow: none; }
+.contact-btn svg{ width: 21px; height: 21px; stroke: currentColor; stroke-width: 1.7; fill: none; }
+
+footer{
+  text-align: center;
+  padding: var(--s7) var(--s5);
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  color: var(--ink-3);
+  font-size: .875rem;
+}
+footer .microcopy{ margin-bottom: var(--s1); }
+
+/* --------------------------------------------------------------------------
+   LOADER
+   The signature is a PNG, so it can't be stroke-drawn — which is why the
+   #sigPath code never ran. A left-to-right wipe reads as handwriting and
+   works with the asset you already have.
+   -------------------------------------------------------------------------- */
+
+/* Keeps the page from scrolling behind the overlay. */
+html.is-loading, html.is-loading body{ overflow: hidden; }
+
+#loader{
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(165deg, #FBFCFE 0%, #EDF2FC 55%, #DEECFB 100%);
+  z-index: 9999;
+  transition: opacity var(--sig-fade) var(--ease), visibility var(--sig-fade) var(--ease);
+  /* Backstop: if the script throws, the overlay still gets out of the way. */
+  animation: loader-failsafe 1ms linear 6s forwards;
+}
+@keyframes loader-failsafe{
+  to{ opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+#loader.hide{ opacity: 0; visibility: hidden; pointer-events: none; }
+
+#loader .signature{
+  display: grid;
+  justify-items: center;
+  gap: var(--s4);
+  padding: 0;
+}
+
+#loader .signature img{
+  /* was clamp(320px, 72vw, 860px) — it filled most of a laptop screen */
+  width: clamp(230px, 54vw, 500px);
+  height: auto;
+  clip-path: inset(0 100% 0 0);
+  animation: sig-write var(--sig-draw) var(--sig-ease) forwards;
+}
+@keyframes sig-write{
+  to{ clip-path: inset(0 0 0 0); }
+}
+
+/* Your stylesheet already had rules for an h4 here but the markup had no
+   h4 — it does now. Remove both if you'd rather show just the mark. */
+#loader .signature h4{
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: .8125rem;
+  font-weight: 500;
+  letter-spacing: .02em;
+  color: var(--ink-3);
+  opacity: 0;
+  animation: sig-caption 420ms var(--ease) var(--sig-draw) forwards;
+}
+@keyframes sig-caption{
+  from{ opacity: 0; transform: translateY(4px); }
+  to{ opacity: 1; transform: none; }
+}
+
+/* Only used if the signature is ever swapped for an SVG with id="sigPath". */
+.sig path{
+  stroke-dasharray: var(--len, 1000);
+  stroke-dashoffset: var(--len, 1000);
+  transition: stroke-dashoffset var(--sig-draw) var(--sig-ease);
+}
+
+/* The script skips the loader outright under reduced motion; this is the
+   backstop for the frame or two before it runs. */
+@media (prefers-reduced-motion: reduce){
+  #loader{ display: none; }
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE
+   -------------------------------------------------------------------------- */
+@media (max-width: 760px){
+  main{ padding: var(--s6) var(--s4) var(--s7); }
+  main > section + section{ margin-top: var(--s7); }
+
+  .intro{
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: var(--s5);
+  }
+  .intro-text{ justify-items: center; }
+  .intro-text p{ max-width: none; }
+  .tags, .experiences-logos{ justify-content: center; }
+  .intro-image a{ max-width: 280px; }
+
+  .tools-text{ grid-template-columns: 1fr; gap: var(--s1) 0; }
+  .tools-text dd{ margin-bottom: var(--s3); }
+
+  .exp-row{ grid-template-columns: 1fr; gap: var(--s1); }
+  .exp-dates{ order: -1; }   /* date reads as a label above the role */
+  .exp-desc{ max-width: none; }
+}
+
+@media (max-width: 700px){
+  .nav-toggle{ display: inline-flex; }
+
+  .nav-list{
+    position: absolute;
+    left: 0; right: 0; top: 100%;
+    z-index: 1000;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s2) var(--s4) var(--s3);
+  }
+  .nav-list a{ display: block; padding: .65rem .5rem; border-radius: var(--r-sm); }
+  .nav-list a::after{ display: none; }
+  .nav-list a:hover{ background: var(--accent-50); }
+}
+
+/* The markup ships the menu with hidden="" so it doesn't flash open before
+   the JS runs. On desktop there's no hamburger to press, so [hidden] has to
+   be overridden there or the nav is unreachable. Explicit at both widths. */
+@media (min-width: 701px){
+  .nav-list[hidden]{ display: flex; }
+}
+@media (max-width: 700px){
+  .nav-list[hidden]{ display: none; }
+}
+
+/* --------------------------------------------------------------------------
+   MOTION / ACCESSIBILITY
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

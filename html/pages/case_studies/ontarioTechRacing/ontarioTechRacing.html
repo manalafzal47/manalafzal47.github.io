@@ -2,12 +2,249 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Ontario Tech Racing Case Study</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ontario Tech Racing Case Study — Manal Afzal</title>
+  <meta name="description" content="Case study: redesigning the Ontario Tech Racing FSAE team website to be clearer for students and more compelling for sponsors.">
   <link rel="stylesheet" href="../ontarioTechRacing/ontarioTechRacing.css">
 </head>
 
- <script>
+<body>
+
+  <div class="header-banner">
+    <header class="site-nav">
+      <a class="brand" href="../../../index.html">Manal</a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="siteMenu">
+        <span class="sr-only">Nav</span>
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+      </button>
+
+      <nav id="siteMenu" aria-label="Primary" hidden>
+        <ul class="nav-list">
+          <li><a href="../../../index.html">Home</a></li>
+          <!-- FIXED: this href was unquoted and pointed at ../ontarioTechRacing/productionTimes.html, which doesn't exist -->
+          <li><a href="../productionTimes/productionTimes.html">Production Times Case Study</a></li>
+          <li><a href="#" aria-current="page">Ontario Tech Racing Case Study</a></li>
+          <li><a class="nav-resume" href="https://drive.google.com/file/d/1u5amQ5spoVT0QOSmmGiQwOrp5nrpgWQx/view?usp=sharing" target="_blank" rel="noopener">Resume <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </nav>
+    </header>
+  </div><!-- /.header-banner (this div was never closed before) -->
+
+  <main>
+    <section class="hero">
+      <img src="../../../../css/images/homepage/otr.png" alt="Screens from the redesigned Ontario Tech Racing website">
+    </section>
+
+
+    <section class="intro">
+
+      <h1>Club / Ontario Tech Racing Website Redesign</h1>
+
+      <div class="context-grid">
+        <div class="context-text">
+          <h4>Context</h4>
+          <p>Ontario Tech Racing is a <strong>student-led FSAE team</strong> that builds a full-fledged car that competes with other universities at the Michigan Competition. I joined as a Software Lead to redesign the team website, aiming to make it more clear, modern and impactful for both sponsors and students.</p>
+        </div>
+        <div class="quick-facts">
+          <p><strong>Timeline</strong><br>Sep 2024 – April 2025</p>
+          <p><strong>Team</strong><br>4 Students</p>
+            <p><strong>Role</strong><br>Software Lead<br>Frontend Developer</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problems -->
+    <section class="key-issues">
+      <h2>Problems</h2>
+
+      <h3>Key issues throughout the pages</h3>
+      <ul>
+        <li>The homepage was cluttered and overwhelmed users with university branding, and the visual hierarchy confused first-time users.</li>
+        <li>The tweets and Instagram sections had not been updated in years, and the broken links reflected poorly on our team.</li>
+        <li>The car page listed information in chronological order but forced users to scroll endlessly to read through the car's history.</li>
+        <li>In the newsletter page, users had to manually click to read a long PDF, which felt outdated and cluttered.</li>
+        <li>Forms had not been updated in the Join Us page, which made the entire website feel disconnected.</li>
+      </ul>
+
+      <h3>Old page views</h3>
+
+      <div class="problem-images">
+        <figure class="problem-item1">
+          <img src="../../../../css/images/ontarioTechRacing/old-website/homepagee.png" alt="The old Ontario Tech Racing homepage">
+          <figcaption>Old Homepage</figcaption>
+        </figure>
+        <figure class="problem-item2">
+          <img src="../../../../css/images/ontarioTechRacing/old-website/newsletter.png" alt="The old newsletter page, linking out to a long PDF">
+          <figcaption>Old Newsletter Page</figcaption>
+        </figure>
+      </div>
+
+      <div class="old-pages">
+        <div class="old-pages-grid">
+          <figure>
+            <img src="../../../../css/images/ontarioTechRacing/old-website/team.png" alt="The old team page">
+            <figcaption>Old Teams Page</figcaption>
+          </figure>
+          <figure>
+            <img src="../../../../css/images/ontarioTechRacing/old-website/sponsors.png" alt="The old sponsors page">
+            <figcaption>Old Sponsors Page</figcaption>
+          </figure>
+          <figure>
+            <img src="../../../../css/images/ontarioTechRacing/old-website/join_us.png" alt="The old Join Us page">
+            <figcaption>Old Join Us Page</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Process -->
+    <section class="research">
+      <h2>Research process</h2>
+      <p>We met with the OTR business team early in the design phase to align on expectations.</p>
+      <p>Their top priorities for the redesign included:</p>
+      <ul>
+        <li>Use Ontario Tech branding (navy blue, orange, logos)</li>
+        <li>Remove outdated content (Newsletter, Blogs)</li>
+        <li>Improve sponsor visibility with clear logos and links</li>
+      </ul>
+      <p>These insights shaped the structure and focus of our redesign.</p>
+    </section>
+
+
+    <!-- Competitive Analysis -->
+    <section class="competitive-analysis">
+      <h2>Design process</h2>
+      <p>
+        To begin our redesign and get inspiration, we conducted a competitive analysis on other top Formula SAE teams (UofT, ETS Montreal) and how they structured their websites.
+        They used interactive visuals and clear team stats to attract sponsors.
+      </p>
+      <p>We noticed that:</p>
+      <ul>
+        <li>Interactive timelines were common and were clear and compact to display history.</li>
+        <li>Sponsors were structured by tiers, and had clear links to the websites.</li>
+      </ul>
+    </section>
+
+    <!-- Pages Modified/Removed/Added -->
+    <section class="page-changes">
+      <div class="page-columns">
+        <div>
+          <h3>Pages we modified</h3>
+          <ul>
+            <li>Homepage</li>
+            <li>Sponsors</li>
+            <li>Team Page</li>
+            <li>Car Information Page</li>
+            <li>Join Us Page</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Pages we removed</h3>
+          <ul>
+            <li>Newsletter</li>
+            <li>Blog</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Pages we added</h3>
+          <ul>
+            <li>Garage Page</li>
+            <li>History Page</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Design Breakdown -->
+    <section class="design-breakdown">
+      <h2>Design breakdown</h2>
+      <p>
+        Our design process began by reviewing a Wix website that was created by a member in the previous year. Using that old Wix draft, we created a Figma wireframe. This helped us prototype quickly, while applying the new design ideas we learned from our design and informational interviews.
+      </p>
+      <blockquote>
+        I led this exploration by identifying what new ideas we needed to design, and made development plans for faster deployment.
+      </blockquote>
+      <figure>
+        <img src="../../../../css/images/ontarioTechRacing/wireframe_breakdown.png" alt="Figma wireframe breakdown of the redesigned pages" class="full-width-img">
+        <figcaption class="caption">Design Breakdown</figcaption>
+      </figure>
+
+      <p>We created a rough wireframe by extracting key visuals from the site, and created a FigJam where
+      we added components that we wanted to keep. This approach helped us move efficiently through our
+      design process, without sacrificing originality.
+      </p>
+    </section>
+
+    <!-- Development Process -->
+    <section class="development-process">
+      <h2>Development process</h2>
+      <p>I implemented:</p>
+      <ul>
+        <li>The Homepage and Sponsors page layout from Figma to code.</li>
+        <li>The Teams page collaboratively with other developers, implementing components and ensuring design consistency.</li>
+        <li>Responsiveness across the site, especially for new students and potential sponsors.</li>
+      </ul>
+      <p class="quote-box">
+        This experience helped me bridge the gap between design and development, and taught me the importance of clarity and usability when implementing design layouts.
+      </p>
+    </section>
+
+    <!-- Final Deployed UI -->
+    <section class="final-ui">
+      <h2>Final deployed pages</h2>
+
+      <!-- CHECK: the folder below is spelled "new-website-[ages" on disk.
+           If that's a typo, rename the folder to "new-website-pages" and
+           update these three paths to match. Left as-is so nothing breaks. -->
+      <figure class="final-section">
+        <img src="../../../../css/images/ontarioTechRacing/new-website-[ages/homepage.png" alt="The redesigned Ontario Tech Racing homepage">
+        <figcaption class="caption">Final deployed Homepage</figcaption>
+      </figure>
+
+      <figure class="final-section">
+        <img src="../../../../css/images/ontarioTechRacing/new-website-[ages/team-page.png" alt="The redesigned team page">
+        <figcaption class="caption">Final deployed Teams page</figcaption>
+      </figure>
+
+      <figure class="final-section">
+        <img src="../../../../css/images/ontarioTechRacing/new-website-[ages/garage.png" alt="The redesigned garage page">
+        <figcaption class="caption">Final deployed Garage page</figcaption>
+      </figure>
+
+      <!-- TODO: navigation on this image isn't working yet
+      <figure class="final-section">
+        <img src="../../../../css/images/ontarioTechRacing/History-page.png" alt="The redesigned history page showing the F24 car">
+        <figcaption class="caption">Final deployed Car (F24)</figcaption>
+      </figure>
+      -->
+    </section>
+
+    <!-- Outcomes -->
+    <section class="outcomes">
+      <h2>Outcomes and reflections</h2>
+      <p>
+        This was my first time designing and developing an application as part of a team. With four designers involved, maintaining a consistent design across all pages was challenging.
+      </p>
+      <p>
+        To address this, I made it a point to discuss all changes during our weekly meetings so that any design inconsistencies could be identified and resolved iteratively.
+      </p>
+      <p>
+        Overall, it was a rewarding experience. I appreciated the flexibility to continue refining our design throughout the development phase.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+      <p class="microcopy">built with lots of iterations and coffee</p>
+
+    <p>&copy; 2026 Manal Afzal</p>
+  </footer>
+
+<script>
 document.addEventListener('DOMContentLoaded', () => {
   const btn  = document.querySelector('.nav-toggle');
   const menu = document.getElementById('siteMenu');
@@ -33,240 +270,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<body>
-
-  <div class="header-banner">
-    <header class="site-nav">
-    <a class="brand" href="../../../../index.html">Manal</a>
-
-    <button class="nav-toggle" aria-expanded="false" aria-controls="siteMenu">
-      <span class="sr-only">Nav</span>
-      <!-- simple 3 bars -->
-      <span class="bar" style="background:#111"></span>
-      <span class="bar" style="background:#111"></span>
-      <span class="bar" style="background:#111"></span>
-    </button>
-
-    <nav id="siteMenu" aria-label="Primary" hidden>
-      <ul class="nav-list">
-        <li><a href="../../../../index.html">Home</a></li>
-        <li><a href=../ontarioTechRacing/productionTimes.html>Production Times Case Study</a></li>
-        <li><a href="#">Ontario Tech Racing Case Study</a></li>
-        <li><a href="https://drive.google.com/file/d/1u5amQ5spoVT0QOSmmGiQwOrp5nrpgWQx/view?usp=sharing" target="_blank" rel="noopener">Resume</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero">
-      <img src="../../../../css/images/homepage/otr.png" alt="OTR project thumbnails">
-    </section>
-
-
-    <section class="intro">
-
-      <h1>Club / Ontario Tech Racing Website Redesign</h1>
-
-      <h3>Shipped</h3>
-
-      <div class="context-grid">
-        <div class="context-text">
-          <h4>Context</h4>
-          <p>Ontario Tech Racing is a <strong>student-led FSAE team</strong> that builds a full-fledged car that competes with other universities at the Michigan Competition. I joined as a Software Lead to redesign the team website, aiming to make it more clear, modern and impactful for both sponsors and students.</p>
-        </div>
-        <div class="quick-facts">
-          <p><strong>Timeline</strong><br>Sep - April 2025</p>
-          <p><strong>Team</strong><br>4 Students</p>
-          <p><strong>Role</strong><br>UI/UX Designer<br>Frontend Developer</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Problems -->
-
-    <h2>PROBLEMS</h2>
-
-    <!-- Key Issues -->
-    <section class="key-issues">
-      <h2>Key Issues Throughout the Pages</h2>
-      <ul>
-        <li>The homepage was cluttered and overwhelmed users with university branding, and the visual hierarchy confused first-time users.</li>
-        <li>The tweets and Instagram sections had not been updated in years, and the broken links reflected poorly on our team.</li>
-        <li>The car page listed information in chronological order but forced users to scroll endlessly to read through the car’s history.</li>
-        <li>In the newsletter page, users had to manually click to read a long PDF, which felt outdated and cluttered.</li>
-        <li>Forms had not been updated in the Join Us page, which made the entire website feel disconnected.</li>
-      </ul>
-    </section>
-
-    <h3>Old Pages Views</h3>
-
-    <div class="problem-images">
-      <figure class="problem-item1">
-        <img src="../../../../css/images/ontarioTechRacing/old-website/homepagee.png" alt="Homepage Layout">
-        <p>Old Homepage</p>
-      </figure>
-      <figure class="problem-item2">
-        <img src="../../../../css/images/ontarioTechRacing/old-website/newsletter.png" alt="Newsletter Section">
-        <p>Old Newsletter Page</p>
-      </figure>
-    </div>
-
-      <div class="old-pages">
-        <h3></h3>
-        <div class="old-pages-grid">
-          <div>
-            <img src="../../../../css/images/ontarioTechRacing/old-website/team.png" alt="Teams Page">
-            <p>Old Teams Page</p>
-          </div>
-          <div>
-            <img src="../../../../css/images/ontarioTechRacing/old-website/sponsors.png" alt="Sponsors">
-            <p>Old Sponsors Page</p>
-          </div>
-          <div>
-            <img src="../../../../css/images/ontarioTechRacing/old-website/join_us.png" alt="Join Us">
-            <p>Old Join Us Page</p>
-          </div>
-        </div>
-      </div>
-
-    <!-- Research Process -->
-    <section class="research">
-      <h2>RESEARCH PROCESS</h2>
-      <p>We met with the OTR business team early in the design phase to align on expectations.</p>
-      <p>Their top priorities for the redesign included:</p>
-      <ul>
-        <li>Use Ontario Tech branding (navy blue, orange, logos)</li>
-        <li>Remove outdated content (Newsletter, Blogs)</li>
-        <li>Improve sponsor visibility with clear logos and links</li>
-      </ul>
-      <p>These insights shaped the structure and focus on our redesign.</p>
-    </section>
-
-
-    <!-- Competitive Analysis -->
-
-    <section class="competitive-analysis">
-      <h2>DESIGN PROCESS</h2>
-      <p>
-        To begin our redesign and get inspiration, we conducted a competitive analysis on other top Formula SAE teams (UofT, ETS Montreal) and how they structured their websites.
-        They used interactive visuals and clear team stats to attract sponsors.
-      </p>
-      <p>We noticed that:</p>
-      <ul>
-        <li>Interactive timelines were common and were clear and compact to display history.</li>
-        <li>Sponsors were structured by tiers, and had clear links to the websites.</li>
-      </ul>
-    </section>
-
-    <!-- Pages Modified/Removed/Added -->
-    <section class="page-changes">
-      <div class="page-columns">
-        <div>
-          <h3>Pages We Modified:</h3>
-          <ul>
-            <li>Homepage</li>
-            <li>Sponsors</li>
-            <li>Team Page</li>
-            <li>Car Information Page</li>
-            <li>Join Us Page</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Pages We Removed:</h3>
-          <ul>
-            <li>Newsletter</li>
-            <li>Blog</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Pages We Added:</h3>
-          <ul>
-            <li>Garage Page</li>
-            <li>History Page</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- Design Breakdown -->
-    <section class="design-breakdown">
-      <h2>DESIGN BREAKDOWN</h2>
-      <p>
-        Our design process began by reviewing a Wix website that was created by a member in the previous year. Using that old Wix draft, we created a Figma wireframe. This helped to prototype quickly, while applying those new design ideas that were learned from our design and informational interviews.
-      </p>
-      <blockquote>
-        I led this exploration by identifying what new ideas we needed to design, and made development plans for faster deployment.
-      </blockquote>
-      <img src="../../../../css/images/ontarioTechRacing/wireframe_breakdown.png" alt="Design wireframe breakdown" class="full-width-img">
-      <p class="caption">Design Breakdown</p>
-
-      <p>We created a rough wireframe by extracting key visuals from the site, and created a FigJam where 
-      we added components that we wanted to keep. This approach helped us move efficiently through our 
-      design process, without sacrificing originality.
-      </p>
-    </section>
-
-    <!-- Development Process -->
-    <section class="development-process">
-      <h2>DEVELOPMENT PROCESS</h2>
-      <p>I implemented:</p>
-      <ul>
-        <li>The Homepage and Sponsors page layout from Figma to Code.</li>
-        <li>The Teams page collaboratively with other developers, implementing components and ensuring design consistency.</li>
-        <li>Helped ensure that the site was responsive, especially for new students and potential sponsors.</li>
-      </ul>
-      <p class="quote-box">
-        This experience helped me bridge the gap between design and development, and taught me the importance of clarity and usability when implementing design layouts.
-      </p>
-    </section>
-
-    <!-- Final Deployed UI -->
-    <section class="final-ui">
-      <h2>FINAL DEPLOYED PAGES</h2>
-
-      <div class="final-section">
-        <img src="../../../../css/images/ontarioTechRacing/new-website-[ages/homepage.png" alt="Final Homepage">
-        <p class="caption">Final deployed Homepage</p>
-      </div>
-
-      <div class="final-section">
-        <img src="../../../../css/images/ontarioTechRacing/new-website-[ages/team-page.png" alt="Final Teams Page">
-        <p class="caption">Final deployed Teams page</p>
-      </div>
-
-      <div class="final-section">
-        <img src="../../../../css/images/ontarioTechRacing/new-website-[ages/garage.png" alt="Final Garage Page">
-        <p class="caption">Final deployed Garage page</p>
-      </div>
-
-      <!-- need to fix this image -- the navigation is not working -->
-      <!-- <div class="final-section">
-        <img src="../../../../css/images/ontarioTechRacing/History-page.png" alt="F24 Car">
-        <p class="caption">Final deployed Car (F24)</p>
-      </div> -->
-    </section>
-
-    <!-- Outcomes -->
-    <section class="outcomes">
-      <h2>OUTCOMES AND REFLECTIONS</h2>
-      <p>
-        This was my first time designing and developing an application as part of a team. With four designers involved, maintaining a consistent design across all pages was challenging.
-      </p>
-      <p>
-        To address this, I made it a point to discuss all changes during our weekly meetings so that any design inconsistencies could be identified and resolved iteratively.
-      </p>
-      <p>
-        Overall, it was a rewarding experience. I appreciated the flexibility to continue refining our design throughout the development phase.
-      </p>
-    </section>
-  </main>
-
-  <footer>
-      <p class="microcopy">designed with lots of iterations and coffee</p>
-
-    <p>© 2025 Manal Afzal</p>
-  </footer>
-  
 </body>
 </html>
